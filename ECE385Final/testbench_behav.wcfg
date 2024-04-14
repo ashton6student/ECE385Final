@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="testbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="testbench" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="2,103.925 ns"></ZoomStartTime>
+      <ZoomEndTime time="2,122.366 ns"></ZoomEndTime>
+      <Cursor1Time time="20,005.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="257"></NameColumnWidth>
+      <ValueColumnWidth column_width="79"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="11" />
+   <wvobject fp_name="/testbench/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/notesX" type="array">
+      <obj_property name="ElementShortName">notesX[0:4][9:0]</obj_property>
+      <obj_property name="ObjectShortName">notesX[0:4][9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/notesSX" type="array">
+      <obj_property name="ElementShortName">notesSX[9:0]</obj_property>
+      <obj_property name="ObjectShortName">notesSX[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/notesSY" type="array">
+      <obj_property name="ElementShortName">notesSY[9:0]</obj_property>
+      <obj_property name="ObjectShortName">notesSY[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/notesY" type="array">
+      <obj_property name="ElementShortName">notesY[0:4][9:0]</obj_property>
+      <obj_property name="ObjectShortName">notesY[0:4][9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/vga/drawX" type="array">
+      <obj_property name="ElementShortName">drawX[9:0]</obj_property>
+      <obj_property name="ObjectShortName">drawX[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/vga/drawY" type="array">
+      <obj_property name="ElementShortName">drawY[9:0]</obj_property>
+      <obj_property name="ObjectShortName">drawY[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/color_instance/Red" type="array">
+      <obj_property name="ElementShortName">Red[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Red[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/color_instance/Green" type="array">
+      <obj_property name="ElementShortName">Green[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Green[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/color_instance/Blue" type="array">
+      <obj_property name="ElementShortName">Blue[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Blue[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>
