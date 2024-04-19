@@ -58,3 +58,12 @@ timestamp=[2024-04-13 12:15:23], mode=BUILD, duration=0:00:00.120, duration_ms=1
 timestamp=[2024-04-13 20:11:04], mode=PLATFORM_GENERATION, duration=0:00:14.831, duration_ms=14831, data={name=mb_usb_hdmi_top}
 timestamp=[2024-04-13 20:11:08], mode=BUILD, duration=0:00:02.481, duration_ms=2481, data={name=ECE385FinalVitus, configuration=Debug, clean_build=false}
 timestamp=[2024-04-13 20:11:08], mode=BUILD, duration=0:00:00.215, duration_ms=215, data={name=ECE385FinalVitus_system, configuration=Debug, clean_build=false}
+timestamp=[2024-04-14 19:38:24], mode=WORKBENCH_START, duration=0:00:09.507, duration_ms=9507, data={}
+timestamp=[2024-04-14 19:38:25], mode=WORKBENCH_UI_INIT, duration=0:00:00.766, duration_ms=766, data={editors_count=4, platform_editors_count=0, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=ECE385FinalVitus,ECE385FinalVitus_system,RemoteSystemsTempFiles,mb_usb_hdmi_top}
+timestamp=[2024-04-14 19:38:47], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.132, duration_ms=132, data={}
+timestamp=[2024-04-14 19:42:55], mode=PLATFORM_GENERATION, duration=0:00:11.762, duration_ms=11762, data={name=mb_usb_hdmi_top}
+timestamp=[2024-04-14 19:42:58], mode=BUILD, duration=0:00:02.680, duration_ms=2680, data={name=ECE385FinalVitus, configuration=Debug, clean_build=false}
+timestamp=[2024-04-14 19:42:59], mode=BUILD, duration=0:00:00.231, duration_ms=231, data={name=ECE385FinalVitus_system, configuration=Debug, clean_build=false}
+timestamp=[2024-04-15 21:21:34], mode=WORKBENCH_START, duration=0:00:09.886, duration_ms=9886, data={}
+timestamp=[2024-04-15 21:21:35], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.149, duration_ms=149, data={}
+timestamp=[2024-04-15 21:21:35], mode=WORKBENCH_UI_INIT, duration=0:00:01.298, duration_ms=1298, data={editors_count=4, platform_editors_count=0, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=ECE385FinalVitus,ECE385FinalVitus_system,RemoteSystemsTempFiles,mb_usb_hdmi_top}

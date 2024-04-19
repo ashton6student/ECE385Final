@@ -6,6 +6,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports uart_rtl_0_rxd]
 set_property IOSTANDARD LVCMOS33 [get_ports uart_rtl_0_txd]
 set_property PACKAGE_PIN N15 [get_ports Clk]
 set_property PACKAGE_PIN J2 [get_ports reset_rtl_0]
+set_property -dict {PACKAGE_PIN J1 IOSTANDARD LVCMOS25} [get_ports run]
 set_property PACKAGE_PIN B16 [get_ports uart_rtl_0_rxd]
 set_property PACKAGE_PIN A16 [get_ports uart_rtl_0_txd]
 

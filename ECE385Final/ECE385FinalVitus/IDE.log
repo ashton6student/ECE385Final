@@ -813,3 +813,64 @@ con
 ----------------End of Script----------------
 
 20:11:20 INFO  : Disconnected from the channel tcfchan#10.
+19:38:20 DEBUG : Logs will be stored at 'C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/IDE.log'.
+19:38:21 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\Users\merli\ECE385Final\ECE385Final\ECE385FinalVitus\temp_xsdb_launch_script.tcl
+19:38:25 INFO  : XSCT server has started successfully.
+19:38:25 INFO  : Successfully done setting XSCT server connection channel  
+19:38:25 INFO  : plnx-install-location is set to ''
+19:38:25 INFO  : Successfully done setting workspace for the tool. 
+19:38:47 INFO  : Registering command handlers for Vitis TCF services
+19:38:47 INFO  : Platform repository initialization has completed.
+19:38:51 INFO  : Successfully done query RDI_DATADIR 
+19:42:33 INFO  : Hardware specification for platform project 'mb_usb_hdmi_top' is updated.
+19:42:54 INFO  : Result from executing command 'getProjects': mb_usb_hdmi_top
+19:42:54 INFO  : Result from executing command 'getPlatforms': mb_usb_hdmi_top|C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/mb_usb_hdmi_top/export/mb_usb_hdmi_top/mb_usb_hdmi_top.xpfm
+19:42:55 INFO  : Checking for BSP changes to sync application flags for project 'ECE385FinalVitus'...
+19:42:58 INFO  : The hardware specification used by project 'ECE385FinalVitus' is out of sync with the platform. Resource files extracted from the hardware specification will be updated.
+19:42:58 INFO  : The file 'C:\Users\merli\ECE385Final\ECE385Final\ECE385FinalVitus\ECE385FinalVitus\_ide\bitstream\mb_usb_hdmi_top.bit' stored in project is removed.
+19:42:58 INFO  : The file 'C:\Users\merli\ECE385Final\ECE385Final\ECE385FinalVitus\ECE385FinalVitus\_ide\bitstream\mb_usb_hdmi_top.mmi' stored in project is removed.
+19:42:58 INFO  : The updated bitstream files are copied from platform to folder 'C:\Users\merli\ECE385Final\ECE385Final\ECE385FinalVitus\ECE385FinalVitus\_ide\bitstream' in project 'ECE385FinalVitus'.
+19:43:10 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:43:11 INFO  : Jtag cable 'RealDigital Boo 887429230015A' is selected.
+19:43:11 INFO  : 'jtag frequency' command is executed.
+19:43:11 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230015A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+19:43:12 INFO  : Device configured successfully with "C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/ECE385FinalVitus/_ide/bitstream/mb_usb_hdmi_top.bit"
+19:43:12 INFO  : Context for processor 'microblaze_0' is selected.
+19:43:12 INFO  : Hardware design and registers information is loaded from 'C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/mb_usb_hdmi_top/export/mb_usb_hdmi_top/hw/mb_usb_hdmi_top.xsa'.
+19:43:12 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+19:43:12 INFO  : Context for processor 'microblaze_0' is selected.
+19:43:12 INFO  : System reset is completed.
+19:43:15 INFO  : 'after 3000' command is executed.
+19:43:15 INFO  : Context for processor 'microblaze_0' is selected.
+19:43:15 INFO  : The application 'C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/ECE385FinalVitus/Debug/ECE385FinalVitus.elf' is downloaded to processor 'microblaze_0'.
+19:43:15 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230015A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/ECE385FinalVitus/_ide/bitstream/mb_usb_hdmi_top.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/mb_usb_hdmi_top/export/mb_usb_hdmi_top/hw/mb_usb_hdmi_top.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/ECE385FinalVitus/Debug/ECE385FinalVitus.elf
+----------------End of Script----------------
+
+19:43:16 INFO  : Context for processor 'microblaze_0' is selected.
+19:43:16 INFO  : 'con' command is executed.
+19:43:16 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+19:43:16 INFO  : Disconnected from the channel tcfchan#2.
+21:21:30 DEBUG : Logs will be stored at 'C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/IDE.log'.
+21:21:31 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\Users\merli\ECE385Final\ECE385Final\ECE385FinalVitus\temp_xsdb_launch_script.tcl
+21:21:35 INFO  : Platform repository initialization has completed.
+21:21:36 INFO  : Registering command handlers for Vitis TCF services
+21:21:36 INFO  : XSCT server has started successfully.
+21:21:40 INFO  : Successfully done setting XSCT server connection channel  
+21:21:40 INFO  : plnx-install-location is set to ''
+21:21:40 INFO  : Successfully done query RDI_DATADIR 
+21:21:40 INFO  : Successfully done setting workspace for the tool. 

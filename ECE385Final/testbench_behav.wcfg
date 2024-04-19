@@ -11,18 +11,22 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="2,103.925 ns"></ZoomStartTime>
-      <ZoomEndTime time="2,122.366 ns"></ZoomEndTime>
-      <Cursor1Time time="20,005.000 ns"></Cursor1Time>
+      <ZoomStartTime time="979.263 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,004.148 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="257"></NameColumnWidth>
-      <ValueColumnWidth column_width="79"></ValueColumnWidth>
+      <ValueColumnWidth column_width="75"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="11" />
+   <WVObjectSize size="10" />
    <wvobject fp_name="/testbench/reset" type="logic">
       <obj_property name="ElementShortName">reset</obj_property>
       <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/run" type="logic">
+      <obj_property name="ElementShortName">run</obj_property>
+      <obj_property name="ObjectShortName">run</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
@@ -45,27 +49,17 @@
       <obj_property name="ElementShortName">notesY[0:4][9:0]</obj_property>
       <obj_property name="ObjectShortName">notesY[0:4][9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/vga/drawX" type="array">
-      <obj_property name="ElementShortName">drawX[9:0]</obj_property>
-      <obj_property name="ObjectShortName">drawX[9:0]</obj_property>
+   <wvobject fp_name="/testbench/notes_instance/state_next" type="array">
+      <obj_property name="ElementShortName">state_next[2:0]</obj_property>
+      <obj_property name="ObjectShortName">state_next[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/vga/drawY" type="array">
-      <obj_property name="ElementShortName">drawY[9:0]</obj_property>
-      <obj_property name="ObjectShortName">drawY[9:0]</obj_property>
+   <wvobject fp_name="/testbench/notes_instance/state_curr" type="array">
+      <obj_property name="ElementShortName">state_curr[2:0]</obj_property>
+      <obj_property name="ObjectShortName">state_curr[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/color_instance/Red" type="array">
-      <obj_property name="ElementShortName">Red[7:0]</obj_property>
-      <obj_property name="ObjectShortName">Red[7:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/color_instance/Green" type="array">
-      <obj_property name="ElementShortName">Green[7:0]</obj_property>
-      <obj_property name="ObjectShortName">Green[7:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/color_instance/Blue" type="array">
-      <obj_property name="ElementShortName">Blue[7:0]</obj_property>
-      <obj_property name="ObjectShortName">Blue[7:0]</obj_property>
+   <wvobject fp_name="/testbench/notes_instance/delay_counter" type="array">
+      <obj_property name="ElementShortName">delay_counter[7:0]</obj_property>
+      <obj_property name="ObjectShortName">delay_counter[7:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
 </wave_config>

@@ -40,3 +40,6 @@ platform clean
 platform generate
 platform config -updatehw {C:/Users/merli/ECE385Final/ECE385Final/mb_usb_hdmi_top.xsa}
 platform generate -domains 
+platform active {mb_usb_hdmi_top}
+platform config -updatehw {C:/Users/merli/ECE385Final/ECE385Final/mb_usb_hdmi_top.xsa}
+platform generate -domains 

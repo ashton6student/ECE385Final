@@ -14,6 +14,7 @@
 module mb_usb_hdmi_top(
     input logic Clk,
     input logic reset_rtl_0,
+    input logic run,
     
     //USB signals
     input logic [0:0] gpio_usb_int_tri_i,
@@ -148,6 +149,7 @@ module mb_usb_hdmi_top(
     //Notes Module
     notes notes_instance(
     .Reset(reset_ah), 
+    .Run(run),
     .frame_clk(vsync),
     .NotesX(notesXsig), 
     .NotesY(notesYsig), 
