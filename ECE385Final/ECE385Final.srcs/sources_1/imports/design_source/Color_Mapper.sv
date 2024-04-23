@@ -15,10 +15,11 @@
 
 
 module  color_mapper ( input  logic [9:0] NotesX[5], NotesY[5], NotesSX, NotesSY, DrawX, DrawY,
-                       output logic [7:0]  Red, Green, Blue );
+                       input  logic [4:0] NotesSelect, hit_bar,
+                       output logic [3:0]  Red, Green, Blue );
     
-    logic notes_on[5];
-	logic fret_on, line_on; 
+    logic notes_on [5], hit_on [5];
+	logic fret_on, line_on;
  
     int SizeX, SizeY;
     assign SizeX = NotesSX;
@@ -27,9 +28,14 @@ module  color_mapper ( input  logic [9:0] NotesX[5], NotesY[5], NotesSX, NotesSY
     always_comb
     begin: Notes
         for(int i = 0; i < 5; i++) begin
-            if ((DrawX >= NotesX[i]) && (DrawX <= NotesX[i] + SizeX) && (DrawY >= NotesY[i]) && (DrawY <= NotesY[i] + SizeY))
+            if ((DrawX >= NotesX[i]) && (DrawX <= NotesX[i] + SizeX) && (DrawY >= NotesY[i] - SizeY) && (DrawY <= NotesY[i]))
             begin
-                notes_on[i] = 1'b1;    
+                if(NotesSelect[i]) begin
+                    notes_on[i] = 1'b1;    
+                end else begin
+                    notes_on[i] = 1'b0;
+                end
+                
             end else begin
                 notes_on[i] = 1'b0;
             end
@@ -46,52 +52,84 @@ module  color_mapper ( input  logic [9:0] NotesX[5], NotesY[5], NotesSX, NotesSY
     
     always_comb
     begin: Hit_line
-        if ((DrawY <= 430) && (DrawY >= 420))
+        if ((DrawY <= 430) && (DrawY >= 420) && (DrawX <= 560) && (DrawX >= 80))
             line_on = 1'b1;
         else
             line_on = 1'b0;
+        if (DrawX >= 80 && DrawX <= 176) begin
+            hit_on[0] = 1'b1;
+        end else begin
+            hit_on[0] = 1'b0;
+        end
+        if (DrawX >= 176 && DrawX <= 272) begin
+            hit_on[1] = 1'b1;
+        end else begin
+            hit_on[1] = 1'b0;
+        end
+        if (DrawX >= 272 && DrawX <= 368) begin
+            hit_on[2] = 1'b1;
+        end else begin
+            hit_on[2] = 1'b0;
+        end
+        if (DrawX >= 368 && DrawX <= 464) begin
+            hit_on[3] = 1'b1;
+        end else begin
+            hit_on[3] = 1'b0;
+        end
+        if (DrawX >= 464 && DrawX <= 560) begin
+            hit_on[4] = 1'b1;
+        end else begin
+            hit_on[4] = 1'b0;
+        end
     end
+    
     always_comb
     begin:RGB_Display
         if(line_on == 1'b1) begin
-            Red = 8'h0f;
-            Green = 8'h0f;
-            Blue = 8'h0f;
+            if(hit_on[0] || hit_on[1] || hit_on[2] || hit_on[3] || hit_on[4]) begin
+                Red = 4'hf;
+                Green = 4'hf;
+                Blue = 4'hf;
+            end else begin
+                Red = 4'h3;
+                Green = 4'h3;
+                Blue = 4'h3;
+            end
         end 
         else if ((notes_on[0] == 1'b1)) begin //green
-            Red = 8'h3d;
-            Green = 8'hff;
-            Blue = 8'h74;
+            Red = 4'h6;
+            Green = 4'hf;
+            Blue = 4'h0;
         end
         else if ((notes_on[1] == 1'b1)) begin //yellow
-            Red = 8'hff;
-            Green = 8'he1;
-            Blue = 8'h38;
+            Red = 4'hf;
+            Green = 4'hd;
+            Blue = 4'h2;
         end
         else if ((notes_on[2] == 1'b1)) begin //red
-            Red = 8'hff;
-            Green = 8'h45;
-            Blue = 8'h38;
+            Red = 4'hf;
+            Green = 4'h0;
+            Blue = 4'h2;
         end 
         else if ((notes_on[3] == 1'b1)) begin //blue
-            Red = 8'h20;
-            Green = 8'h14;
-            Blue = 8'hff;
+            Red = 4'h2;
+            Green = 4'h0;
+            Blue = 4'hf;
         end
         else if ((notes_on[4] == 1'b1)) begin //orange
-            Red = 8'hff;
-            Green = 8'hA0;
-            Blue = 8'h24;
+            Red = 4'hf;
+            Green = 4'h7;
+            Blue = 4'h0;
         end  
         else if (fret_on == 1'b1) begin
-            Red = 8'h67;
-            Green = 8'h3e;
-            Blue = 8'h0f;
+            Red = 4'h6;
+            Green = 4'h3;
+            Blue = 4'h1;
         end      
         else begin 
-            Red = 8'hff;
-            Green = 8'h00 - 2 * DrawY[9:6];
-            Blue = 8'hff;
+            Red = 4'h0; 
+            Green = 4'hf - DrawY[9:6];
+            Blue = 4'h0;
         end      
     end 
     

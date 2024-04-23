@@ -23,10 +23,12 @@
 module testbench(
 
     );
-    logic reset, run, clk, pxl_clk, hsync, vsync, vde;
+    logic reset_in, run, clk, pxl_clk, hsync, vsync, vde;
     logic [9:0] notesX [5], notesY [5], notesSX, notesSY, drawX, drawY;
+    logic [4:0] notesSelect;
     logic [8:0] red, green, blue;
     
+    logic reset = ~reset_in;
     notes notes_instance(
     .Reset(reset),
     .Run(run), 
@@ -34,30 +36,32 @@ module testbench(
     .NotesX(notesX), 
     .NotesY(notesY), 
     .NotesSX(notesSX),
-    .NotesSY(notesSY) 
+    .NotesSY(notesSY),
+    .NotesSelect(notesSelect) 
     );
     
-//    vga_controller vga (
-//        .pixel_clk(pxl_clk),
-//        .reset(reset),
-//        .hs(hsync),
-//        .vs(vsync),
-//        .active_nblank(vde),
-//        .drawX(drawX),
-//        .drawY(drawY)
-//    ); 
+    vga_controller vga (
+        .pixel_clk(pxl_clk),
+        .reset(reset),
+        .hs(hsync),
+        .vs(vsync),
+        .active_nblank(vde),
+        .drawX(drawX),
+        .drawY(drawY)
+    ); 
     
-//    color_mapper color_instance(
-//        .NotesX(notesX),
-//        .NotesY(notesY),
-//        .DrawX(drawX),
-//        .DrawY(drawY),
-//        .NotesSX(notesSX),
-//        .NotesSY(notesSY),
-//        .Red(red),
-//        .Green(green),
-//        .Blue(blue)
-//    );
+    color_mapper color_instance(
+        .NotesX(notesX),
+        .NotesY(notesY),
+        .DrawX(drawX),
+        .DrawY(drawY),
+        .NotesSX(notesSX),
+        .NotesSY(notesSY),
+        .NotesSelect(notesSelect),
+        .Red(red),
+        .Green(green),
+        .Blue(blue)
+    );
     
     // Generate the clock
     initial begin
@@ -77,6 +81,10 @@ module testbench(
         run <= 1'b1;
         repeat (3) @(posedge clk);
         run <= 1'b0;
+        repeat (1000) @(posedge clk);
+        reset <= 1'b1;
+        repeat (3) @(posedge clk);
+        reset <= 1'b0;
         repeat (10000) @(posedge clk);
         $finish;
     end

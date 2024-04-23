@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Fri Apr 12 19:59:21 2024
+-- Date        : Thu Apr 11 14:37:13 2024
 -- Host        : DESKTOP-129R2SH running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/hdmi_tx_0/hdmi_tx_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top hdmi_tx_0 -prefix
+--               hdmi_tx_0_ hdmi_tx_0_sim_netlist.vhdl
 -- Design      : hdmi_tx_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -41,8 +41,6 @@ entity hdmi_tx_0_encode is
     \dout_reg[4]_3\ : in STD_LOGIC;
     AR : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of hdmi_tx_0_encode : entity is "encode";
 end hdmi_tx_0_encode;
 
 architecture STRUCTURE of hdmi_tx_0_encode is
@@ -5186,8 +5184,6 @@ entity hdmi_tx_0_serdes_10_to_1 is
     datain : in STD_LOGIC_VECTOR ( 9 downto 0 );
     AR : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of hdmi_tx_0_serdes_10_to_1 : entity is "serdes_10_to_1";
 end hdmi_tx_0_serdes_10_to_1;
 
 architecture STRUCTURE of hdmi_tx_0_serdes_10_to_1 is
@@ -5776,11 +5772,9 @@ use UNISIM.VCOMPONENTS.ALL;
 entity hdmi_tx_0_srldelay is
   port (
     data_o : out STD_LOGIC_VECTOR ( 37 downto 0 );
-    data_i : in STD_LOGIC_VECTOR ( 37 downto 0 );
+    data_i : in STD_LOGIC_VECTOR ( 25 downto 0 );
     pix_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of hdmi_tx_0_srldelay : entity is "srldelay";
 end hdmi_tx_0_srldelay;
 
 architecture STRUCTURE of hdmi_tx_0_srldelay is
@@ -5989,7 +5983,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(14),
+      D => '0',
       Q => data_o(14)
     );
 \srl[17].srl16_i\: unisim.vcomponents.SRL16E
@@ -6004,7 +5998,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(15),
+      D => '0',
       Q => data_o(15)
     );
 \srl[18].srl16_i\: unisim.vcomponents.SRL16E
@@ -6019,7 +6013,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(16),
+      D => '0',
       Q => data_o(16)
     );
 \srl[19].srl16_i\: unisim.vcomponents.SRL16E
@@ -6034,7 +6028,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(17),
+      D => '0',
       Q => data_o(17)
     );
 \srl[1].srl16_i\: unisim.vcomponents.SRL16E
@@ -6064,7 +6058,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(18),
+      D => data_i(14),
       Q => data_o(18)
     );
 \srl[21].srl16_i\: unisim.vcomponents.SRL16E
@@ -6079,7 +6073,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(19),
+      D => data_i(15),
       Q => data_o(19)
     );
 \srl[22].srl16_i\: unisim.vcomponents.SRL16E
@@ -6094,7 +6088,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(20),
+      D => data_i(16),
       Q => data_o(20)
     );
 \srl[23].srl16_i\: unisim.vcomponents.SRL16E
@@ -6109,7 +6103,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(21),
+      D => data_i(17),
       Q => data_o(21)
     );
 \srl[24].srl16_i\: unisim.vcomponents.SRL16E
@@ -6124,7 +6118,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(22),
+      D => '0',
       Q => data_o(22)
     );
 \srl[25].srl16_i\: unisim.vcomponents.SRL16E
@@ -6139,7 +6133,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(23),
+      D => '0',
       Q => data_o(23)
     );
 \srl[26].srl16_i\: unisim.vcomponents.SRL16E
@@ -6154,7 +6148,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(24),
+      D => '0',
       Q => data_o(24)
     );
 \srl[27].srl16_i\: unisim.vcomponents.SRL16E
@@ -6169,7 +6163,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(25),
+      D => '0',
       Q => data_o(25)
     );
 \srl[28].srl16_i\: unisim.vcomponents.SRL16E
@@ -6184,7 +6178,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(26),
+      D => data_i(18),
       Q => data_o(26)
     );
 \srl[29].srl16_i\: unisim.vcomponents.SRL16E
@@ -6199,7 +6193,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(27),
+      D => data_i(19),
       Q => data_o(27)
     );
 \srl[2].srl16_i\: unisim.vcomponents.SRL16E
@@ -6229,7 +6223,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(28),
+      D => data_i(20),
       Q => data_o(28)
     );
 \srl[31].srl16_i\: unisim.vcomponents.SRL16E
@@ -6244,7 +6238,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(29),
+      D => data_i(21),
       Q => data_o(29)
     );
 \srl[32].srl16_i\: unisim.vcomponents.SRL16E
@@ -6259,7 +6253,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(30),
+      D => '0',
       Q => data_o(30)
     );
 \srl[33].srl16_i\: unisim.vcomponents.SRL16E
@@ -6274,7 +6268,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(31),
+      D => '0',
       Q => data_o(31)
     );
 \srl[34].srl16_i\: unisim.vcomponents.SRL16E
@@ -6289,7 +6283,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(32),
+      D => '0',
       Q => data_o(32)
     );
 \srl[35].srl16_i\: unisim.vcomponents.SRL16E
@@ -6304,7 +6298,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(33),
+      D => '0',
       Q => data_o(33)
     );
 \srl[36].srl16_i\: unisim.vcomponents.SRL16E
@@ -6319,7 +6313,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(34),
+      D => data_i(22),
       Q => data_o(34)
     );
 \srl[37].srl16_i\: unisim.vcomponents.SRL16E
@@ -6334,7 +6328,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(35),
+      D => data_i(23),
       Q => data_o(35)
     );
 \srl[38].srl16_i\: unisim.vcomponents.SRL16E
@@ -6349,7 +6343,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(36),
+      D => data_i(24),
       Q => data_o(36)
     );
 \srl[39].srl16_i\: unisim.vcomponents.SRL16E
@@ -6364,7 +6358,7 @@ begin
       A3 => '1',
       CE => '1',
       CLK => pix_clk,
-      D => data_i(37),
+      D => data_i(25),
       Q => data_o(37)
     );
 \srl[3].srl16_i\: unisim.vcomponents.SRL16E
@@ -6484,13 +6478,11 @@ entity hdmi_tx_0_hdmi_tx_v1_0 is
     TMDS_CLK_P : out STD_LOGIC;
     TMDS_CLK_N : out STD_LOGIC;
     pix_clk : in STD_LOGIC;
-    data_i : in STD_LOGIC_VECTOR ( 37 downto 0 );
+    data_i : in STD_LOGIC_VECTOR ( 25 downto 0 );
     pix_clkx5 : in STD_LOGIC;
     rst : in STD_LOGIC;
     pix_clk_locked : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of hdmi_tx_0_hdmi_tx_v1_0 : entity is "hdmi_tx_v1_0";
 end hdmi_tx_0_hdmi_tx_v1_0;
 
 architecture STRUCTURE of hdmi_tx_0_hdmi_tx_v1_0 is
@@ -6680,7 +6672,7 @@ serial_r: entity work.hdmi_tx_0_serdes_10_to_1_2
     );
 srldly_0: entity work.hdmi_tx_0_srldelay
      port map (
-      data_i(37 downto 0) => data_i(37 downto 0),
+      data_i(25 downto 0) => data_i(25 downto 0),
       data_o(37 downto 30) => blue_dly(7 downto 0),
       data_o(29 downto 22) => green_dly(7 downto 0),
       data_o(21 downto 14) => red_dly(7 downto 0),
@@ -6704,9 +6696,9 @@ entity hdmi_tx_0 is
     pix_clkx5 : in STD_LOGIC;
     pix_clk_locked : in STD_LOGIC;
     rst : in STD_LOGIC;
-    red : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    green : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    blue : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    red : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    green : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    blue : in STD_LOGIC_VECTOR ( 3 downto 0 );
     hsync : in STD_LOGIC;
     vsync : in STD_LOGIC;
     vde : in STD_LOGIC;
@@ -6751,9 +6743,9 @@ inst: entity work.hdmi_tx_0_hdmi_tx_v1_0
       TMDS_CLK_P => TMDS_CLK_P,
       TMDS_DATA_N(2 downto 0) => TMDS_DATA_N(2 downto 0),
       TMDS_DATA_P(2 downto 0) => TMDS_DATA_P(2 downto 0),
-      data_i(37 downto 30) => blue(7 downto 0),
-      data_i(29 downto 22) => green(7 downto 0),
-      data_i(21 downto 14) => red(7 downto 0),
+      data_i(25 downto 22) => blue(3 downto 0),
+      data_i(21 downto 18) => green(3 downto 0),
+      data_i(17 downto 14) => red(3 downto 0),
       data_i(13 downto 12) => aux0_din(3 downto 2),
       data_i(11 downto 8) => aux1_din(3 downto 0),
       data_i(7 downto 4) => aux2_din(3 downto 0),

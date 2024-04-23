@@ -43,3 +43,42 @@ platform generate -domains
 platform active {mb_usb_hdmi_top}
 platform config -updatehw {C:/Users/merli/ECE385Final/ECE385Final/mb_usb_hdmi_top.xsa}
 platform generate -domains 
+platform active {mb_usb_hdmi_top}
+platform config -updatehw {C:/Users/merli/ECE385Final/ECE385Final/mb_usb_hdmi_top.xsa}
+platform generate
+platform generate -domains 
+platform active {mb_usb_hdmi_top}
+platform config -updatehw {C:/Users/merli/ECE385Final/ECE385Final/mb_usb_hdmi_top.xsa}
+platform generate
+platform config -updatehw {C:/Users/merli/ECE385Final/ECE385Final/mb_usb_hdmi_top.xsa}
+platform generate -domains 
+platform config -updatehw {C:/Users/merli/ECE385Final/ECE385Final/mb_usb_hdmi_top.xsa}
+platform clean
+platform generate
+platform active {mb_usb_hdmi_top}
+platform config -updatehw {C:/Users/merli/ECE385Final/ECE385Final/mb_usb_hdmi_top.xsa}
+platform generate -domains 
+platform config -updatehw {C:/Users/merli/ECE385Final/ECE385Final/mb_usb_hdmi_top.xsa}
+platform generate -domains 
+platform config -updatehw {C:/Users/merli/ECE385Final/ECE385Final/mb_usb_hdmi_top.xsa}
+platform generate -domains 
+platform generate -domains standalone_microblaze_0 
+platform active {mb_usb_hdmi_top}
+platform config -updatehw {C:/Users/merli/ECE385Final/ECE385Final/mb_usb_hdmi_top.xsa}
+platform generate -domains 
+platform config -updatehw {C:/Users/merli/ECE385Final/ECE385Final/mb_usb_hdmi_top.xsa}
+platform generate -domains 
+platform config -updatehw {C:/Users/merli/ECE385Final/ECE385Final/mb_usb_hdmi_top.xsa}
+platform generate -domains 
+platform config -updatehw {C:/Users/merli/ECE385Final/ECE385Final/mb_usb_hdmi_top.xsa}
+platform generate -domains 
+platform config -updatehw {C:/Users/merli/ECE385Final/ECE385Final/mb_usb_hdmi_top.xsa}
+platform generate -domains 
+platform config -updatehw {C:/Users/merli/ECE385Final/ECE385Final/mb_usb_hdmi_top.xsa}
+platform generate -domains 
+platform config -updatehw {C:/Users/merli/ECE385Final/ECE385Final/mb_usb_hdmi_top.xsa}
+platform generate -domains 
+platform config -updatehw {C:/Users/merli/ECE385Final/ECE385Final/mb_usb_hdmi_top.xsa}
+platform generate -domains 
+platform config -updatehw {C:/Users/merli/ECE385Final/ECE385Final/mb_usb_hdmi_top.xsa}
+platform generate -domains 

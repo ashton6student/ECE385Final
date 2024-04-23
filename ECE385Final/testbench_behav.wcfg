@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="979.263 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,004.148 ns"></ZoomEndTime>
-      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
+      <ZoomStartTime time="1,999,963.680 ns"></ZoomStartTime>
+      <ZoomEndTime time="2,000,020.464 ns"></ZoomEndTime>
+      <Cursor1Time time="2,000,011.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="257"></NameColumnWidth>
-      <ValueColumnWidth column_width="75"></ValueColumnWidth>
+      <ValueColumnWidth column_width="67"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="10" />
+   <WVObjectSize size="16" />
    <wvobject fp_name="/testbench/reset" type="logic">
       <obj_property name="ElementShortName">reset</obj_property>
       <obj_property name="ObjectShortName">reset</obj_property>
@@ -61,5 +61,30 @@
       <obj_property name="ElementShortName">delay_counter[7:0]</obj_property>
       <obj_property name="ObjectShortName">delay_counter[7:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/notes_instance/rom_addr" type="array">
+      <obj_property name="ElementShortName">rom_addr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">rom_addr[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/notes_instance/rom_data" type="array">
+      <obj_property name="ElementShortName">rom_data[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rom_data[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/color_instance/NotesSelect" type="array">
+      <obj_property name="ElementShortName">NotesSelect[4:0]</obj_property>
+      <obj_property name="ObjectShortName">NotesSelect[4:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/color_instance/notes_on" type="array">
+      <obj_property name="ElementShortName">notes_on[0:4]</obj_property>
+      <obj_property name="ObjectShortName">notes_on[0:4]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/vga/drawX" type="array">
+      <obj_property name="ElementShortName">drawX[9:0]</obj_property>
+      <obj_property name="ObjectShortName">drawX[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/vga/drawY" type="array">
+      <obj_property name="ElementShortName">drawY[9:0]</obj_property>
+      <obj_property name="ObjectShortName">drawY[9:0]</obj_property>
    </wvobject>
 </wave_config>

@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Fri Apr 12 19:59:21 2024
+// Date        : Thu Apr 11 14:37:13 2024
 // Host        : DESKTOP-129R2SH running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/hdmi_tx_0/hdmi_tx_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top hdmi_tx_0 -prefix
+//               hdmi_tx_0_ hdmi_tx_0_sim_netlist.v
 // Design      : hdmi_tx_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,79 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "hdmi_tx_0,hdmi_tx_v1_0,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
-(* X_CORE_INFO = "hdmi_tx_v1_0,Vivado 2022.2" *) 
-(* NotValidForBitStream *)
-module hdmi_tx_0
-   (pix_clk,
-    pix_clkx5,
-    pix_clk_locked,
-    rst,
-    red,
-    green,
-    blue,
-    hsync,
-    vsync,
-    vde,
-    aux0_din,
-    aux1_din,
-    aux2_din,
-    ade,
-    TMDS_CLK_P,
-    TMDS_CLK_N,
-    TMDS_DATA_P,
-    TMDS_DATA_N);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 pix_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME pix_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *) input pix_clk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 pix_clkx5 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME pix_clkx5, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *) input pix_clkx5;
-  input pix_clk_locked;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input rst;
-  input [7:0]red;
-  input [7:0]green;
-  input [7:0]blue;
-  input hsync;
-  input vsync;
-  input vde;
-  input [3:0]aux0_din;
-  input [3:0]aux1_din;
-  input [3:0]aux2_din;
-  input ade;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:hdmi:2.0 hdmi_tx TMDS_CLK_P" *) output TMDS_CLK_P;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:hdmi:2.0 hdmi_tx TMDS_CLK_N" *) output TMDS_CLK_N;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:hdmi:2.0 hdmi_tx TMDS_DATA_P" *) output [2:0]TMDS_DATA_P;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:hdmi:2.0 hdmi_tx TMDS_DATA_N" *) output [2:0]TMDS_DATA_N;
-
-  (* IOSTANDARD = "TMDS_33" *) (* SLEW = "SLOW" *) wire TMDS_CLK_N;
-  (* IOSTANDARD = "TMDS_33" *) (* SLEW = "SLOW" *) wire TMDS_CLK_P;
-  (* IOSTANDARD = "TMDS_33" *) (* SLEW = "SLOW" *) wire [2:0]TMDS_DATA_N;
-  (* IOSTANDARD = "TMDS_33" *) (* SLEW = "SLOW" *) wire [2:0]TMDS_DATA_P;
-  wire ade;
-  wire [3:0]aux0_din;
-  wire [3:0]aux1_din;
-  wire [3:0]aux2_din;
-  wire [7:0]blue;
-  wire [7:0]green;
-  wire hsync;
-  wire pix_clk;
-  wire pix_clk_locked;
-  wire pix_clkx5;
-  wire [7:0]red;
-  wire rst;
-  wire vde;
-  wire vsync;
-
-  hdmi_tx_0_hdmi_tx_v1_0 inst
-       (.TMDS_CLK_N(TMDS_CLK_N),
-        .TMDS_CLK_P(TMDS_CLK_P),
-        .TMDS_DATA_N(TMDS_DATA_N),
-        .TMDS_DATA_P(TMDS_DATA_P),
-        .data_i({blue,green,red,aux0_din[3:2],aux1_din,aux2_din,hsync,vsync,vde,ade}),
-        .pix_clk(pix_clk),
-        .pix_clk_locked(pix_clk_locked),
-        .pix_clkx5(pix_clkx5),
-        .rst(rst));
-endmodule
-
-(* ORIG_REF_NAME = "encode" *) 
 module hdmi_tx_0_encode
    (vde_reg,
     ade_reg,
@@ -4163,7 +4090,78 @@ module hdmi_tx_0_encode__parameterized1
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "hdmi_tx_v1_0" *) 
+(* CHECK_LICENSE_TYPE = "hdmi_tx_0,hdmi_tx_v1_0,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
+(* X_CORE_INFO = "hdmi_tx_v1_0,Vivado 2022.2" *) 
+(* NotValidForBitStream *)
+module hdmi_tx_0
+   (pix_clk,
+    pix_clkx5,
+    pix_clk_locked,
+    rst,
+    red,
+    green,
+    blue,
+    hsync,
+    vsync,
+    vde,
+    aux0_din,
+    aux1_din,
+    aux2_din,
+    ade,
+    TMDS_CLK_P,
+    TMDS_CLK_N,
+    TMDS_DATA_P,
+    TMDS_DATA_N);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 pix_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME pix_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *) input pix_clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 pix_clkx5 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME pix_clkx5, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *) input pix_clkx5;
+  input pix_clk_locked;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input rst;
+  input [3:0]red;
+  input [3:0]green;
+  input [3:0]blue;
+  input hsync;
+  input vsync;
+  input vde;
+  input [3:0]aux0_din;
+  input [3:0]aux1_din;
+  input [3:0]aux2_din;
+  input ade;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:hdmi:2.0 hdmi_tx TMDS_CLK_P" *) output TMDS_CLK_P;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:hdmi:2.0 hdmi_tx TMDS_CLK_N" *) output TMDS_CLK_N;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:hdmi:2.0 hdmi_tx TMDS_DATA_P" *) output [2:0]TMDS_DATA_P;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:hdmi:2.0 hdmi_tx TMDS_DATA_N" *) output [2:0]TMDS_DATA_N;
+
+  (* IOSTANDARD = "TMDS_33" *) (* SLEW = "SLOW" *) wire TMDS_CLK_N;
+  (* IOSTANDARD = "TMDS_33" *) (* SLEW = "SLOW" *) wire TMDS_CLK_P;
+  (* IOSTANDARD = "TMDS_33" *) (* SLEW = "SLOW" *) wire [2:0]TMDS_DATA_N;
+  (* IOSTANDARD = "TMDS_33" *) (* SLEW = "SLOW" *) wire [2:0]TMDS_DATA_P;
+  wire ade;
+  wire [3:0]aux0_din;
+  wire [3:0]aux1_din;
+  wire [3:0]aux2_din;
+  wire [3:0]blue;
+  wire [3:0]green;
+  wire hsync;
+  wire pix_clk;
+  wire pix_clk_locked;
+  wire pix_clkx5;
+  wire [3:0]red;
+  wire rst;
+  wire vde;
+  wire vsync;
+
+  hdmi_tx_0_hdmi_tx_v1_0 inst
+       (.TMDS_CLK_N(TMDS_CLK_N),
+        .TMDS_CLK_P(TMDS_CLK_P),
+        .TMDS_DATA_N(TMDS_DATA_N),
+        .TMDS_DATA_P(TMDS_DATA_P),
+        .data_i({blue,green,red,aux0_din[3:2],aux1_din,aux2_din,hsync,vsync,vde,ade}),
+        .pix_clk(pix_clk),
+        .pix_clk_locked(pix_clk_locked),
+        .pix_clkx5(pix_clkx5),
+        .rst(rst));
+endmodule
+
 module hdmi_tx_0_hdmi_tx_v1_0
    (TMDS_DATA_P,
     TMDS_DATA_N,
@@ -4179,7 +4177,7 @@ module hdmi_tx_0_hdmi_tx_v1_0
   output TMDS_CLK_P;
   output TMDS_CLK_N;
   input pix_clk;
-  input [37:0]data_i;
+  input [25:0]data_i;
   input pix_clkx5;
   input rst;
   input pix_clk_locked;
@@ -4198,7 +4196,7 @@ module hdmi_tx_0_hdmi_tx_v1_0
   wire [3:0]aux2_dly;
   wire [7:0]blue_dly;
   wire c0_reg;
-  wire [37:0]data_i;
+  wire [25:0]data_i;
   wire encb_n_10;
   wire encb_n_11;
   wire encb_n_12;
@@ -4347,7 +4345,6 @@ module hdmi_tx_0_hdmi_tx_v1_0
         .pix_clk(pix_clk));
 endmodule
 
-(* ORIG_REF_NAME = "serdes_10_to_1" *) 
 module hdmi_tx_0_serdes_10_to_1
    (iob_data_out,
     pix_clkx5,
@@ -4920,16 +4917,15 @@ module hdmi_tx_0_serdes_10_to_1_2
         .TQ(NLW_oserdes_s_TQ_UNCONNECTED));
 endmodule
 
-(* ORIG_REF_NAME = "srldelay" *) 
 module hdmi_tx_0_srldelay
    (data_o,
     data_i,
     pix_clk);
   output [37:0]data_o;
-  input [37:0]data_i;
+  input [25:0]data_i;
   input pix_clk;
 
-  wire [37:0]data_i;
+  wire [25:0]data_i;
   wire [37:0]data_o;
   wire pix_clk;
 
@@ -5021,7 +5017,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[14]),
+        .D(1'b0),
         .Q(data_o[14]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 
@@ -5036,7 +5032,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[15]),
+        .D(1'b0),
         .Q(data_o[15]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 
@@ -5051,7 +5047,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[16]),
+        .D(1'b0),
         .Q(data_o[16]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 
@@ -5066,7 +5062,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[17]),
+        .D(1'b0),
         .Q(data_o[17]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 
@@ -5096,7 +5092,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[18]),
+        .D(data_i[14]),
         .Q(data_o[18]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 
@@ -5111,7 +5107,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[19]),
+        .D(data_i[15]),
         .Q(data_o[19]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 
@@ -5126,7 +5122,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[20]),
+        .D(data_i[16]),
         .Q(data_o[20]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 
@@ -5141,7 +5137,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[21]),
+        .D(data_i[17]),
         .Q(data_o[21]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 
@@ -5156,7 +5152,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[22]),
+        .D(1'b0),
         .Q(data_o[22]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 
@@ -5171,7 +5167,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[23]),
+        .D(1'b0),
         .Q(data_o[23]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 
@@ -5186,7 +5182,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[24]),
+        .D(1'b0),
         .Q(data_o[24]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 
@@ -5201,7 +5197,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[25]),
+        .D(1'b0),
         .Q(data_o[25]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 
@@ -5216,7 +5212,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[26]),
+        .D(data_i[18]),
         .Q(data_o[26]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 
@@ -5231,7 +5227,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[27]),
+        .D(data_i[19]),
         .Q(data_o[27]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 
@@ -5261,7 +5257,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[28]),
+        .D(data_i[20]),
         .Q(data_o[28]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 
@@ -5276,7 +5272,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[29]),
+        .D(data_i[21]),
         .Q(data_o[29]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 
@@ -5291,7 +5287,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[30]),
+        .D(1'b0),
         .Q(data_o[30]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 
@@ -5306,7 +5302,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[31]),
+        .D(1'b0),
         .Q(data_o[31]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 
@@ -5321,7 +5317,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[32]),
+        .D(1'b0),
         .Q(data_o[32]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 
@@ -5336,7 +5332,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[33]),
+        .D(1'b0),
         .Q(data_o[33]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 
@@ -5351,7 +5347,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[34]),
+        .D(data_i[22]),
         .Q(data_o[34]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 
@@ -5366,7 +5362,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[35]),
+        .D(data_i[23]),
         .Q(data_o[35]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 
@@ -5381,7 +5377,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[36]),
+        .D(data_i[24]),
         .Q(data_o[36]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 
@@ -5396,7 +5392,7 @@ module hdmi_tx_0_srldelay
         .A3(1'b1),
         .CE(1'b1),
         .CLK(pix_clk),
-        .D(data_i[37]),
+        .D(data_i[25]),
         .Q(data_o[37]));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* srl_bus_name = "\inst/srldly_0/srl " *) 

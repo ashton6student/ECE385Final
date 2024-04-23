@@ -94,8 +94,11 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/design_source/VGA_controller.sv
   C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/design_source/hex_driver.sv
   C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/new/notes.sv
+  C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/new/notes_rom.sv
   C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/design_source/mb_usb_hdmi_top.sv
 }
+read_ip -quiet C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/ip/hdmi_tx_0/hdmi_tx_0.xci
+
 add_files C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/bd/mb_block/mb_block.bd
 set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_mdm_1_0/mb_block_mdm_1_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_mdm_1_0/mb_block_mdm_1_0_ooc_trace.xdc]
@@ -137,8 +140,6 @@ set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385F
 set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_uartlite_0_0/mb_block_axi_uartlite_0_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/mb_block_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_3/data/mb_bootloop_le.elf]
-
-read_ip -quiet C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/ip/hdmi_tx_0/hdmi_tx_0.xci
 
 read_ip -quiet C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
 set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]

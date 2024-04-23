@@ -47,9 +47,13 @@ module mb_usb_hdmi_top(
     logic [9:0] drawX, drawY, ballxsig, ballysig, ballsizesig;
     logic [9:0] notesXsig [5], notesYsig [5]; 
     logic [9:0] notesSXsig, notesSYsig;
+    logic [4:0] notesSelect;
     logic hsync, vsync, vde;
-    logic [7:0] red, green, blue;
+    logic [3:0] red, green, blue;
     logic reset_ah;
+    
+    logic [7:0] score;
+    logic [4:0] hit_bar;
     
     assign reset_ah = reset_rtl_0;
     
@@ -58,7 +62,7 @@ module mb_usb_hdmi_top(
     hex_driver HexA (
         .clk(Clk),
         .reset(reset_ah),
-        .in({keycode0_gpio[31:28], keycode0_gpio[27:24], keycode0_gpio[23:20], keycode0_gpio[19:16]}),
+        .in({4'b0, 4'b0, score[7:4], score[3:0]}),
         .hex_seg(hex_segA),
         .hex_grid(hex_gridA)
     );
@@ -150,21 +154,27 @@ module mb_usb_hdmi_top(
     notes notes_instance(
     .Reset(reset_ah), 
     .Run(run),
+    .keycode(keycode0_gpio[7:0]),
+    .score_out(score),
     .frame_clk(vsync),
     .NotesX(notesXsig), 
     .NotesY(notesYsig), 
     .NotesSX(notesSXsig),
-    .NotesSY(notesSYsig) 
+    .NotesSY(notesSYsig),
+    .NotesSelect(notesSelect),
+    .hit_out(hit_bar) 
     );
     
     //Color Mapper Module   
     color_mapper color_instance(
-        .NotesX(notesXsig),
-        .NotesY(notesYsig),
         .DrawX(drawX),
         .DrawY(drawY),
+        .NotesX(notesXsig),
+        .NotesY(notesYsig),
         .NotesSX(notesSXsig),
         .NotesSY(notesSYsig),
+        .NotesSelect(notesSelect),
+        .hit_bar(hit_bar),
         .Red(red),
         .Green(green),
         .Blue(blue)
