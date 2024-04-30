@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="1,999,963.680 ns"></ZoomStartTime>
-      <ZoomEndTime time="2,000,020.464 ns"></ZoomEndTime>
-      <Cursor1Time time="2,000,011.000 ns"></Cursor1Time>
+      <ZoomStartTime time="599,050 ps"></ZoomStartTime>
+      <ZoomEndTime time="602,626 ps"></ZoomEndTime>
+      <Cursor1Time time="1,000,000 ps"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="257"></NameColumnWidth>
-      <ValueColumnWidth column_width="67"></ValueColumnWidth>
+      <ValueColumnWidth column_width="59"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="16" />
+   <WVObjectSize size="17" />
    <wvobject fp_name="/testbench/reset" type="logic">
       <obj_property name="ElementShortName">reset</obj_property>
       <obj_property name="ObjectShortName">reset</obj_property>
@@ -33,8 +33,8 @@
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/notesX" type="array">
-      <obj_property name="ElementShortName">notesX[0:4][9:0]</obj_property>
-      <obj_property name="ObjectShortName">notesX[0:4][9:0]</obj_property>
+      <obj_property name="ElementShortName">notesX[0:4][10:0]</obj_property>
+      <obj_property name="ObjectShortName">notesX[0:4][10:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/notesSX" type="array">
@@ -46,8 +46,9 @@
       <obj_property name="ObjectShortName">notesSY[9:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/notesY" type="array">
-      <obj_property name="ElementShortName">notesY[0:4][9:0]</obj_property>
-      <obj_property name="ObjectShortName">notesY[0:4][9:0]</obj_property>
+      <obj_property name="ElementShortName">notesY[0:7][10:0]</obj_property>
+      <obj_property name="ObjectShortName">notesY[0:7][10:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/notes_instance/state_next" type="array">
       <obj_property name="ElementShortName">state_next[2:0]</obj_property>
@@ -63,28 +64,32 @@
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/notes_instance/rom_addr" type="array">
-      <obj_property name="ElementShortName">rom_addr[3:0]</obj_property>
-      <obj_property name="ObjectShortName">rom_addr[3:0]</obj_property>
+      <obj_property name="ElementShortName">rom_addr[0:7][3:0]</obj_property>
+      <obj_property name="ObjectShortName">rom_addr[0:7][3:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/notes_instance/rom_data" type="array">
-      <obj_property name="ElementShortName">rom_data[4:0]</obj_property>
-      <obj_property name="ObjectShortName">rom_data[4:0]</obj_property>
+      <obj_property name="ElementShortName">rom_data[0:7][4:0]</obj_property>
+      <obj_property name="ObjectShortName">rom_data[0:7][4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/color_instance/NotesSelect" type="array">
-      <obj_property name="ElementShortName">NotesSelect[4:0]</obj_property>
-      <obj_property name="ObjectShortName">NotesSelect[4:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   <wvobject fp_name="/testbench/red" type="array">
+      <obj_property name="ElementShortName">red[3:0]</obj_property>
+      <obj_property name="ObjectShortName">red[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/color_instance/notes_on" type="array">
-      <obj_property name="ElementShortName">notes_on[0:4]</obj_property>
-      <obj_property name="ObjectShortName">notes_on[0:4]</obj_property>
+   <wvobject fp_name="/testbench/green" type="array">
+      <obj_property name="ElementShortName">green[3:0]</obj_property>
+      <obj_property name="ObjectShortName">green[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/vga/drawX" type="array">
-      <obj_property name="ElementShortName">drawX[9:0]</obj_property>
-      <obj_property name="ObjectShortName">drawX[9:0]</obj_property>
+   <wvobject fp_name="/testbench/blue" type="array">
+      <obj_property name="ElementShortName">blue[3:0]</obj_property>
+      <obj_property name="ObjectShortName">blue[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/vga/drawY" type="array">
-      <obj_property name="ElementShortName">drawY[9:0]</obj_property>
-      <obj_property name="ObjectShortName">drawY[9:0]</obj_property>
+   <wvobject fp_name="/testbench/notes_instance/NotesSelect" type="array">
+      <obj_property name="ElementShortName">NotesSelect[0:7][4:0]</obj_property>
+      <obj_property name="ObjectShortName">NotesSelect[0:7][4:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/notes_instance/rom_addr" type="array">
+      <obj_property name="ElementShortName">rom_addr[0:7][3:0]</obj_property>
+      <obj_property name="ObjectShortName">rom_addr[0:7][3:0]</obj_property>
    </wvobject>
 </wave_config>

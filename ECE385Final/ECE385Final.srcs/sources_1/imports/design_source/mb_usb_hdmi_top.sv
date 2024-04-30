@@ -45,18 +45,22 @@ module mb_usb_hdmi_top(
     logic clk_25MHz, clk_125MHz, clk, clk_100MHz;
     logic locked;
     logic [9:0] drawX, drawY, ballxsig, ballysig, ballsizesig;
-    logic [9:0] notesXsig [5], notesYsig [5]; 
+    logic signed [10:0] notesXsig [5], notesYsig[8]; 
     logic [9:0] notesSXsig, notesSYsig;
-    logic [4:0] notesSelect;
+    logic [4:0] notesSelect [8];
     logic hsync, vsync, vde;
     logic [3:0] red, green, blue;
     logic reset_ah;
+    logic [2:0] state;
     
     logic [7:0] score;
     logic [4:0] hit_bar;
     
     assign reset_ah = reset_rtl_0;
     
+//    //Test
+//    assign notesXsig = '{180, 240, 300, 360, 420};
+//    assign notesYsig = '{0, 60, 120, 180, 240, 300, 360, 420};
     
     //Keycode HEX drivers
     hex_driver HexA (
@@ -139,22 +143,11 @@ module mb_usb_hdmi_top(
         .TMDS_DATA_N(hdmi_tmds_data_n)          
     );
 
-    
-//    //Ball Module
-//    ball ball_instance(
-//        .Reset(reset_ah),
-//        .frame_clk(vsync),                    //Figure out what this should be so that the ball will move
-//        .keycode(keycode0_gpio[7:0]),    //Notice: only one keycode connected to ball by default
-//        .BallX(ballxsig),
-//        .BallY(ballysig),
-//        .BallS(ballsizesig)
-//    );
-    
     //Notes Module
     notes notes_instance(
     .Reset(reset_ah), 
     .Run(run),
-    .keycode(keycode0_gpio[7:0]),
+    .keycodes(keycode0_gpio),
     .score_out(score),
     .frame_clk(vsync),
     .NotesX(notesXsig), 
@@ -162,11 +155,13 @@ module mb_usb_hdmi_top(
     .NotesSX(notesSXsig),
     .NotesSY(notesSYsig),
     .NotesSelect(notesSelect),
-    .hit_out(hit_bar) 
+    .hit_out(hit_bar),
+    .state_out(state) 
     );
     
     //Color Mapper Module   
     color_mapper color_instance(
+        .vga_clk(clk_25MHz),
         .DrawX(drawX),
         .DrawY(drawY),
         .NotesX(notesXsig),
@@ -177,7 +172,8 @@ module mb_usb_hdmi_top(
         .hit_bar(hit_bar),
         .Red(red),
         .Green(green),
-        .Blue(blue)
+        .Blue(blue),
+        .state(state)
     );
     
 endmodule

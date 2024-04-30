@@ -1,0 +1,2 @@
+countdown_rom.v,verilog,xil_defaultlib,../../../../ECE385Final.gen/sources_1/ip/countdown_rom/sim/countdown_rom.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

@@ -89,12 +89,30 @@ set_property ip_output_repo c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.c
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
+add_files C:/Users/merli/Image_to_COE/vaporwave/vaporwave.COE
+add_files C:/Users/merli/Image_to_COE/fretboard/fretboard.COE
+add_files C:/Users/merli/Image_to_COE/greenNote/greenNote.COE
+add_files C:/Users/merli/Image_to_COE/blueNote/blueNote.COE
+add_files C:/Users/merli/Image_to_COE/redNote/redNote.COE
+add_files C:/Users/merli/Image_to_COE/yellowNote/yellowNote.COE
+add_files C:/Users/merli/Image_to_COE/orangeNote/orangeNote.COE
+add_files C:/Users/merli/Image_to_COE/titleScreen/titleScreen.COE
+add_files c:/Users/merli/Image_to_COE/countdown/countdown.COE
 read_verilog -library xil_defaultlib -sv {
   C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/design_source/Color_Mapper.sv
   C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/design_source/VGA_controller.sv
+  C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/Image_to_COE/blueNote/blueNote_palette.sv
+  C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/countdown/countdown_palette.sv
+  C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/Image_to_COE/fretboard/fretboard_palette.sv
+  C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/Image_to_COE/greenNote/greenNote_palette.sv
   C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/design_source/hex_driver.sv
   C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/new/notes.sv
   C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/new/notes_rom.sv
+  C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/Image_to_COE/orangeNote/orangeNote_palette.sv
+  C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/Image_to_COE/redNote/redNote_palette.sv
+  C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/titleScreen/titleScreen_palette.sv
+  C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/Image_to_COE/vaporwave/vaporwave_palette.sv
+  C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/Image_to_COE/yellowNote/yellowNote_palette.sv
   C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/design_source/mb_usb_hdmi_top.sv
 }
 read_ip -quiet C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/ip/hdmi_tx_0/hdmi_tx_0.xci
@@ -145,6 +163,33 @@ read_ip -quiet C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1
 set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
+
+read_ip -quiet C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/ip/vaporwave_rom/vaporwave_rom.xci
+set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/vaporwave_rom/vaporwave_rom_ooc.xdc]
+
+read_ip -quiet C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/ip/fretboard_rom/fretboard_rom.xci
+set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/fretboard_rom/fretboard_rom_ooc.xdc]
+
+read_ip -quiet C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/ip/green_rom/green_rom.xci
+set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/green_rom/green_rom_ooc.xdc]
+
+read_ip -quiet C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/ip/blue_rom/blue_rom.xci
+set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/blue_rom/blue_rom_ooc.xdc]
+
+read_ip -quiet C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/ip/red_rom/red_rom.xci
+set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/red_rom/red_rom_ooc.xdc]
+
+read_ip -quiet C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/ip/yellow_rom/yellow_rom.xci
+set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/yellow_rom/yellow_rom_ooc.xdc]
+
+read_ip -quiet C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/ip/orange_rom/orange_rom.xci
+set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/orange_rom/orange_rom_ooc.xdc]
+
+read_ip -quiet C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/ip/titleScreen/titleScreen.xci
+set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/titleScreen/titleScreen_ooc.xdc]
+
+read_ip -quiet c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/ip/countdown_rom/countdown_rom.xci
+set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/countdown_rom/countdown_rom_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

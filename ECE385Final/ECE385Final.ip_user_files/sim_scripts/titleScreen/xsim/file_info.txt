@@ -1,0 +1,2 @@
+titleScreen.v,verilog,xil_defaultlib,../../../../ECE385Final.gen/sources_1/ip/titleScreen/sim/titleScreen.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

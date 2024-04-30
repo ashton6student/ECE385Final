@@ -1,0 +1,2 @@
+red_rom.v,verilog,xil_defaultlib,../../../../ECE385Final.gen/sources_1/ip/red_rom/sim/red_rom.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

@@ -1,0 +1,6 @@
+verilog xil_defaultlib  \
+"../../../../ECE385Final.gen/sources_1/ip/fretboard_rom/sim/fretboard_rom.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

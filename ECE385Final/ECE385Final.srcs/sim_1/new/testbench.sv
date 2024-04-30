@@ -23,25 +23,37 @@
 module testbench(
 
     );
-    logic reset_in, run, clk, pxl_clk, hsync, vsync, vde;
-    logic [9:0] notesX [5], notesY [5], notesSX, notesSY, drawX, drawY;
-    logic [4:0] notesSelect;
-    logic [8:0] red, green, blue;
+    logic reset_in, run, clk, clk2, pxl_clk, hsync, vsync, vde;
+    logic signed [10:0] notesX [5], notesY[8]; 
+    logic [9:0] notesSX, notesSY, drawX, drawY;
+    logic [4:0] notesSelect[8], hit_bar;
+    logic [3:0] red, green, blue;
+    logic [2:0] state;
+    
+    //Test
+    initial begin
+        notesX = '{180, 240, 300, 360, 420};
+        notesY = '{0, 60, 120, 180, 240, 300, 360, 420};
+    end
+    
     
     logic reset = ~reset_in;
+    
     notes notes_instance(
-    .Reset(reset),
-    .Run(run), 
-    .frame_clk(clk),
-    .NotesX(notesX), 
-    .NotesY(notesY), 
-    .NotesSX(notesSX),
-    .NotesSY(notesSY),
-    .NotesSelect(notesSelect) 
+        .Reset(reset),
+        .Run(run), 
+        .frame_clk(clk),
+//        .NotesX(notesX), 
+//        .NotesY(notesY), 
+        .NotesSX(notesSX),
+        .NotesSY(notesSY),
+        .NotesSelect(notesSelect),
+        .hit_out(hit_bar),
+        .state_out(state) 
     );
     
     vga_controller vga (
-        .pixel_clk(pxl_clk),
+        .pixel_clk(clk),
         .reset(reset),
         .hs(hsync),
         .vs(vsync),
@@ -60,7 +72,10 @@ module testbench(
         .NotesSelect(notesSelect),
         .Red(red),
         .Green(green),
-        .Blue(blue)
+        .Blue(blue),
+        .hit_bar(hit_bar),
+        .vga_clk(clk),
+        .state(state)
     );
     
     // Generate the clock
@@ -70,22 +85,19 @@ module testbench(
     end
     
     initial begin
-        pxl_clk = 1'b0;
-        forever pxl_clk = #4ns ~pxl_clk;
+        clk2 = 1'b0;
+        forever clk2 = #4ns ~clk2;
     end
+    
     initial begin
+        reset <= 1'b0;
+        repeat (5) @(posedge clk);
         reset <= 1'b1;
-        run <= 1'b0;
-        repeat (3) @(posedge clk);
+        repeat (5) @(posedge clk);
         reset <= 1'b0;
         run <= 1'b1;
-        repeat (3) @(posedge clk);
+        repeat (5) @(posedge clk);
         run <= 1'b0;
-        repeat (1000) @(posedge clk);
-        reset <= 1'b1;
-        repeat (3) @(posedge clk);
-        reset <= 1'b0;
-        repeat (10000) @(posedge clk);
         $finish;
     end
     

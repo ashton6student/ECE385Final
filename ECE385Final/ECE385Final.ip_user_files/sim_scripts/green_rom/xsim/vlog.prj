@@ -1,0 +1,6 @@
+verilog xil_defaultlib  \
+"../../../../ECE385Final.gen/sources_1/ip/green_rom/sim/green_rom.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

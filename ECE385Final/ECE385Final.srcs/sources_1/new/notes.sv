@@ -25,15 +25,16 @@ module  notes
     input  logic        Reset,
     input  logic        Run, 
     input  logic        frame_clk,
-    input  logic [7:0]  keycode,
+    input  logic [31:0]  keycodes,
     
     output logic [7:0]  score_out,
-    output logic [9:0]  NotesX[5], 
-    output logic [9:0]  NotesY[5], 
+    output logic signed [10:0]  NotesX[5], 
+    output logic signed [10:0]  NotesY[8], 
     output logic [9:0]  NotesSX,
     output logic [9:0]  NotesSY,
-    output logic [4:0]  NotesSelect,
-    output logic [4:0]  hit_out
+    output logic [4:0]  NotesSelect[8],
+    output logic [4:0]  hit_out,
+    output logic [2:0]  state_out
 );
     //State Logic Control
     //Control Signals
@@ -57,6 +58,7 @@ module  notes
     
     //State Machine
     enum logic [2:0] {start, count_1, count_2, count_3, play, finish} state_next, state_curr;
+    assign state_out = state_curr;
     
     //Next State Logic
     always_comb
@@ -67,29 +69,45 @@ module  notes
             unique case(state_curr)
                 (start): 
                 begin
-                    if (Run) begin
+                    if (Run || keycodes[7:0] == 8'h28 || keycodes[15:8] == 8'h28 || keycodes[23:16] == 8'h28 || keycodes[31:24] == 8'h28) begin
                         state_next = count_1;        
+                    end else begin
+                        state_next = state_curr;
                     end
                 end
                 (count_1): 
                 begin
                     if(delay_counter > 60) begin
                         state_next = count_2;
+                    end else begin
+                        state_next = state_curr;
                     end
                 end
                 (count_2): 
                 begin
                     if(delay_counter > 120) begin
                         state_next = count_3;
+                    end else begin
+                        state_next = state_curr;
                     end
                 end
                 (count_3): 
                 begin
                     if(delay_counter > 180) begin
                         state_next = play;
+                    end else begin
+                        state_next = state_curr;
                     end
                 end
-                default: state_next = state_curr;
+                (play):
+                begin
+                    if(Run || keycodes[7:0] == 8'h29 || keycodes[15:8] == 8'h29 || keycodes[23:16] == 8'h29 || keycodes[31:24] == 8'h29) begin
+                        state_next = start;
+                    end else begin
+                        state_next = state_curr;
+                    end
+                end
+                default: state_next = start;
             endcase
         end
     end
@@ -110,22 +128,22 @@ module  notes
     //End State Logic Control
     
     //Begin Note Logic
-    parameter [9:0] Notes_X_init [5] = '{103, 199, 295, 391, 487} ;  // Center position on the X axis
-    parameter [9:0] Notes_Y_init [5] =  '{-50, -50, -50, -50, -50} ;  // Center position on the Y axis
-    parameter [9:0] NOTES_VELOCITY = 10'd8;
+    parameter signed [10:0] NOTES_X [5] = '{180, 240, 300, 360, 420} ;  // Center position on the X axis
+    parameter signed [10:0] NOTES_Y_START [8] = '{-40, -100, -160, -220, -280, -340, -400, -460}; //Starting Y position
+    parameter [9:0] NOTES_VELOCITY = 10'd4;
+    parameter [9:0] NOTES_SIZE = 10'd40;
     
     logic [9:0] Notes_X_Velocity[5];
-    logic [9:0] Notes_Y_Velocity[5];
+    logic [9:0] Notes_Y_Velocity;
 
-    logic [9:0] Notes_X_next[5];
-    logic [9:0] Notes_Y_next[5];
-    logic [9:0] flag;
+    logic signed [10:0] Notes_X_next[5];
+    logic signed [10:0] Notes_Y_next[8];
     
     //Notes Rom
-    logic [3:0] rom_addr;
-    logic [4:0]	 rom_data;
-    logic [3:0] rom_count;
-    logic begin_notes, new_note;
+    logic [3:0] rom_addr[8];
+    logic [4:0]	 rom_data[8];
+    logic [3:0] rom_count[8];
+    logic begin_notes, new_note[8];
     
     notes_rom notes_rom(.addr(rom_addr), .data(rom_data));
     
@@ -135,128 +153,78 @@ module  notes
     always_comb 
     begin: Moving_Notes 
         if(Play) begin
-            for(int i = 0; i < 5; i++) begin
-                Notes_Y_Velocity[i] = NOTES_VELOCITY;
-                if (NotesY[i] >= 10'd530)  // Note off screen, reset position
+            Notes_Y_Velocity = NOTES_VELOCITY;
+            for(int i = 0; i < 8; i++)
+            begin
+                if (NotesY[i] >= 480)  // Note off screen, reset position
                 begin
-                    Notes_Y_next[i] = 10'd0;
-                    new_note = 1'b1;
+                    Notes_Y_next[i] = 11'd0;
+                    new_note[i] = 1'b1;
                 end else begin
-                    Notes_Y_next[i] = NotesY[i] + Notes_Y_Velocity[i];
-                    new_note = 1'b0;
+                    Notes_Y_next[i] = NotesY[i] + Notes_Y_Velocity;
+                    new_note[i] = 1'b0;
                 end
             end
         end else begin
-            for(int i = 0; i < 5; i++) begin
-                Notes_Y_Velocity[i] = 10'b0;
-                Notes_Y_next[i] = 10'd0;
-            end
-            new_note = 1'b0;
+            Notes_Y_Velocity = 10'b0;
+            Notes_Y_next = NOTES_Y_START;
+            for(int i = 0; i < 8; i++)
+                new_note[i] = 1'b0;
         end
     end
     
-    assign Notes_X_next = Notes_X_init;
-    assign NotesSX = 10'd50;
-    assign NotesSY = 10'd50;
+    assign Notes_X_next = NOTES_X;
+    assign NotesSX = NOTES_SIZE;
+    assign NotesSY = NOTES_SIZE;
    
-   //Hitting Notes
-   logic [4:0] score_add, hit_bar;
-   logic [7:0] score;
-   logic score_counted;
-   logic [7:0] keycodes [5] = {8'h04, 8'h16, 8'h07, 8'h09, 8'h0A};
+    //Hitting Notes
+    logic [4:0] score_add, hit_bar;
+    logic [7:0] score;
+    logic score_counted;
+    logic [7:0] note_keycodes [5] = {8'h04, 8'h16, 8'h07, 8'h09, 8'h0A};
+    logic key_press[5], key_press_old[5];
    
-   assign score_out = score;
-   assign hit_out = hit_bar;
-   
-   always_comb 
-   begin: Score
+    assign score_out = score;
+    assign hit_out = score_add;
+    
+    always_comb
+    begin: Key_Presses
         for(int i = 0; i < 5; i++) begin
-            if ((keycode == keycodes[i]) && rom_data[i] && (NotesY[i] >= 10'd420)) //Hit Note
-            begin
-                if(score_counted) begin
-                    score_add[i] = 1'b1;
-                end else begin
-                    score_add[i] = 1'b0;
+            key_press[i] = 1'b0;
+            for(int j = 0; j < 8; j++) begin
+                if(keycodes[7:0] == note_keycodes[i] || keycodes[15:8] == note_keycodes[i] || keycodes[23:16] == note_keycodes[i] || keycodes[31:16] == note_keycodes[i]) begin
+                    if(NotesY[j] >= 10'd400) 
+                        key_press[i] = 1'b1;
                 end
-                hit_bar[i] = 1'b1;
-            end else begin
-                score_add[i] = 1'b0;
-                hit_bar[i] = 1'b0;
             end
+        end    
+    end
+    
+    always_ff @(posedge frame_clk)
+    begin: Score
+        for(int i = 0; i < 5; i++) begin
+            key_press_old[i] <= key_press[i];
+            if(key_press[i] && !key_press_old[i] && NotesSelect[i])
+                score_add[i] <= 1'b1;
+            else
+                score_add[i] <= 1'b0;
         end
-//        if ((keycode == 8'h04) && rom_data[0] && score_counted && (NotesY[0] >= 10'd420)) //Hit Note 0
-//        begin
-//            if(score_counted) begin
-//                score_add[0] = 1'b1;
-//            end else begin
-//                score_add[0] = 1'b0;
-//            end
-//            hit_bar = 1'b1;
-//        end else begin
-//            hit_bar = 1'b0;
-//        end
-//        if (keycode == 8'h16 && rom_data[1] && score_counted && (NotesY[1] >= 10'd420)) //Hit Note 1
-//        begin
-//            if(score_counted) begin
-//                score_add[1] = 1'b1;
-//            end else begin
-//                score_add[1] = 1'b0;
-//            end
-//            hit_bar = 1'b1;
-//        end else begin
-//            hit_bar = 1'b0;
-//        end
-//        if (keycode == 8'h07 && rom_data[2] && score_counted && (NotesY[2] >= 10'd420)) //Hit Note 2
-//        begin
-//            if(score_counted) begin
-//                score_add[2] = 1'b1;
-//            end else begin
-//                score_add[2] = 1'b0;
-//            end
-//            hit_bar = 1'b1;
-//        end else begin
-//            hit_bar = 1'b0;
-//        end
-//        if (keycode == 8'h09 && rom_data[3] && score_counted && (NotesY[3] >= 10'd420)) //Hit Note 3
-//        begin
-//            if(score_counted) begin
-//                score_add[3] = 1'b1;
-//            end else begin
-//                score_add[3] = 1'b0;
-//            end
-//            hit_bar = 1'b1;
-//        end else begin
-//            hit_bar = 1'b0;
-//        end
-//        if (keycode == 8'h0A && rom_data[4] && score_counted && (NotesY[4] >= 10'd420)) //Hit Note 4
-//        begin
-//            score_add[4] = 1'b1;
-//        end else begin
-//            score_add[4] = 1'b0;
-//        end
-   end
-   
+        score <= score + score_add[0] + score_add[1] + score_add[2] + score_add[3] + score_add[4]; 
+    end
+    
     always_ff @(posedge frame_clk) //make sure the frame clock is instantiated correctly
     begin: Move_Notes
         NotesX <= Notes_X_next;  
         NotesY <= Notes_Y_next;
-        if(new_note && Play)
-        begin
-            rom_count <= rom_count + 1'b1;
-            score_counted <= 1'b1;
-        end else if (Play) begin
-            rom_count <= rom_count;
-            if(score_add[0] || score_add[1] || score_add[2] || score_add[3] || score_add[4]) begin
-                score <= score + score_add[0] + score_add[1] + score_add[2] + score_add[3] + score_add[4];
-                score_counted <= 1'b0;
+        for(int i = 0; i < 8; i++) begin
+            if(new_note[i] && Play)
+            begin
+                rom_count[i] <= rom_count[i] + 4'd8;
+            end else if (Play) begin
+                rom_count[i] <= rom_count[i];
             end else begin
-                score <= score;
-                score_counted <= score_counted;
-            end
-        end else begin
-            rom_count <= 1'b0;
-            score <= 1'b0;
-            score_counted <= 1'b0;
+                rom_count[i] <= i;
+        end
         end
 	 end
 endmodule
