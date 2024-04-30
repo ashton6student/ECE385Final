@@ -70,7 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 3
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7s50csga324-1
 
@@ -97,12 +96,11 @@ add_files C:/Users/merli/Image_to_COE/redNote/redNote.COE
 add_files C:/Users/merli/Image_to_COE/yellowNote/yellowNote.COE
 add_files C:/Users/merli/Image_to_COE/orangeNote/orangeNote.COE
 add_files C:/Users/merli/Image_to_COE/titleScreen/titleScreen.COE
-add_files c:/Users/merli/Image_to_COE/countdown/countdown.COE
+add_files C:/Users/merli/Image_to_COE/countdown/countdown.COE
 read_verilog -library xil_defaultlib -sv {
-  C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/design_source/Color_Mapper.sv
   C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/design_source/VGA_controller.sv
   C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/Image_to_COE/blueNote/blueNote_palette.sv
-  C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/countdown/countdown_palette.sv
+  C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/new/color_mapper.sv
   C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/Image_to_COE/fretboard/fretboard_palette.sv
   C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/Image_to_COE/greenNote/greenNote_palette.sv
   C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/design_source/hex_driver.sv
@@ -110,7 +108,6 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/new/notes_rom.sv
   C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/Image_to_COE/orangeNote/orangeNote_palette.sv
   C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/Image_to_COE/redNote/redNote_palette.sv
-  C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/titleScreen/titleScreen_palette.sv
   C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/Image_to_COE/vaporwave/vaporwave_palette.sv
   C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/Image_to_COE/yellowNote/yellowNote_palette.sv
   C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/imports/design_source/mb_usb_hdmi_top.sv
@@ -184,12 +181,6 @@ set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385F
 
 read_ip -quiet C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/ip/orange_rom/orange_rom.xci
 set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/orange_rom/orange_rom_ooc.xdc]
-
-read_ip -quiet C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/ip/titleScreen/titleScreen.xci
-set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/titleScreen/titleScreen_ooc.xdc]
-
-read_ip -quiet c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/ip/countdown_rom/countdown_rom.xci
-set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/countdown_rom/countdown_rom_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

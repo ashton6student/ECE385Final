@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7s50csga324-1" LaunchTime="1714464591">
+<GenRun Id="impl_1" LaunchPart="xc7s50csga324-1" LaunchTime="1714507656">
   <File Type="ROUTE-PWR" Name="mb_usb_hdmi_top_power_routed.rpt"/>
   <File Type="PA-TCL" Name="mb_usb_hdmi_top.tcl"/>
   <File Type="BITSTR-MMI" Name="mb_usb_hdmi_top.mmi"/>
@@ -95,15 +95,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/design_source/Color_Mapper.sv">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../lab6_2_provided/design_source/Color_Mapper.sv"/>
-        <Attr Name="ImportTime" Val="1711941723"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/imports/design_source/VGA_controller.sv">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../lab6_2_provided/design_source/VGA_controller.sv"/>
@@ -122,10 +113,8 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/countdown/countdown_palette.sv">
+    <File Path="$PSRCDIR/sources_1/new/color_mapper.sv">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../Image_to_COE/countdown/countdown_palette.sv"/>
-        <Attr Name="ImportTime" Val="1714456722"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -190,15 +179,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/titleScreen/titleScreen_palette.sv">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../Image_to_COE/titleScreen/titleScreen_palette.sv"/>
-        <Attr Name="ImportTime" Val="1714440004"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/imports/Image_to_COE/vaporwave/vaporwave_palette.sv">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../Image_to_COE/vaporwave/vaporwave_palette.sv"/>
@@ -221,6 +201,26 @@
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../lab6_2_provided/design_source/mb_usb_hdmi_top.sv"/>
         <Attr Name="ImportTime" Val="1711941723"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/countdown/countdown_palette.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../Image_to_COE/countdown/countdown_palette.sv"/>
+        <Attr Name="ImportTime" Val="1714456722"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/titleScreen/titleScreen_palette.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../Image_to_COE/titleScreen/titleScreen_palette.sv"/>
+        <Attr Name="ImportTime" Val="1714440004"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -387,7 +387,6 @@
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="clk_wiz_0"/>
   <BlockFileSet Type="BlockSrcs" Name="mb_block_axi_gpio_0_2"/>
-  <BlockFileSet Type="BlockSrcs" Name="countdown_rom"/>
   <BlockFileSet Type="BlockSrcs" Name="red_rom"/>
   <BlockFileSet Type="BlockSrcs" Name="mb_block_dlmb_v10_2"/>
   <BlockFileSet Type="BlockSrcs" Name="mb_block_axi_gpio_0_0"/>
@@ -411,5 +410,4 @@
   <BlockFileSet Type="BlockSrcs" Name="green_rom"/>
   <BlockFileSet Type="BlockSrcs" Name="blue_rom"/>
   <BlockFileSet Type="BlockSrcs" Name="yellow_rom"/>
-  <BlockFileSet Type="BlockSrcs" Name="titleScreen"/>
 </GenRun>
