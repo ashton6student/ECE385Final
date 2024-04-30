@@ -151,6 +151,8 @@ OPTRACE "add files" START { }
   read_ip -quiet C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/ip/red_rom/red_rom.xci
   read_ip -quiet C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/ip/yellow_rom/yellow_rom.xci
   read_ip -quiet C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/ip/orange_rom/orange_rom.xci
+  read_ip -quiet C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/ip/titleScreen/titleScreen.xci
+  read_ip -quiet C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/ip/countdown_rom/countdown_rom.xci
   set_param project.isImplRun false
 OPTRACE "read constraints: implementation" START { }
   read_xdc C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/constrs_1/imports/pin_assignment/mb_usb_hdmi_top.xdc

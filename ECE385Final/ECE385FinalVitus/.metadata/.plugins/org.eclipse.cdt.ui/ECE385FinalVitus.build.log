@@ -1,4 +1,4 @@
-03:18:09 **** Incremental Build of configuration Debug for project ECE385FinalVitus ****
+18:09:36 **** Incremental Build of configuration Debug for project ECE385FinalVitus ****
 make all 
 'Building file: ../src/lw_usb/MAX3421E.c'
 'Invoking: MicroBlaze gcc compiler'
@@ -82,5 +82,5 @@ mb-size ECE385FinalVitus.elf  |tee "ECE385FinalVitus.elf.size"
 'Finished building: ECE385FinalVitus.elf.size'
 ' '
 
-03:18:11 Build Finished (took 1s.557ms)
+18:09:38 Build Finished (took 1s.578ms)
 

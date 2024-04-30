@@ -1,6 +1,6 @@
-03:18:11 **** Incremental Build of configuration Debug for project ECE385FinalVitus_system ****
+18:09:38 **** Incremental Build of configuration Debug for project ECE385FinalVitus_system ****
 make all 
 Skipping SD card image generation. Reason: "The system project only has applications for microblaze processors."
 
-03:18:11 Build Finished (took 124ms)
+18:09:38 Build Finished (took 112ms)
 
