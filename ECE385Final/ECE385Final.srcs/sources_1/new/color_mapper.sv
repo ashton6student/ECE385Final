@@ -21,7 +21,7 @@
 
 module color_mapper(   input  logic signed [10:0] NotesX[5], NotesY[8], 
                        input  logic [9:0] NotesSX, NotesSY, DrawX, DrawY,
-                       input  logic [4:0] NotesSelect [8], hit_bar,
+                       input  logic [4:0] NotesSelect [8], hit_bar, hit_note,
                        output logic [3:0]  Red, Green, Blue, 
                        input  logic vga_clk, 
                        input  logic [2:0] state
@@ -94,7 +94,6 @@ module color_mapper(   input  logic signed [10:0] NotesX[5], NotesY[8],
         count_address = 14'b0;
         if(DrawX > countX && DrawX <= (countX + countSX) && DrawY >= countY && DrawY < (countY + countSY)&& (state == 3'b001 || state == 3'b010 || state == 3'b011)) begin
             count_address = (DrawX - countX) + (countSX * (state - 1))  + ((DrawY - countY) * countSXtot);    
-//            count_address = (DrawX - countX) + ((DrawY - countY) * countSXtot);    
         end
     end
     
@@ -114,7 +113,7 @@ module color_mapper(   input  logic signed [10:0] NotesX[5], NotesY[8],
                 for(int j = 0; j < 8; j++) begin
                     if ((DrawX >= NotesX[i]) && (DrawX <= NotesX[i] + SizeX) && (DrawY >= NotesY[j]) && (DrawY < NotesY[j] + SizeY))
                     begin
-                        if(NotesSelect[j][i]) begin
+                        if(NotesSelect[j][i] && !hit_note[i]) begin
                             notes_address[i] = (((DrawX - NotesX[i]) * 40) / 40) + ((((DrawY - NotesY[j]) * 40) / 40) * 40); 
                             if (!(notes_red[i] == 4'hf && notes_green[i] == 4'h0 && notes_blue[i] == 4'hf)) begin
                                 notes_on[i] = 1'b1;

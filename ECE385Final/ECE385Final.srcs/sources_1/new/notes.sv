@@ -39,8 +39,9 @@ module  notes
     //State Logic Control
     //Control Signals
     logic Play, Finish;
-    logic run_concat;
+    logic run_concat, finish_concat;
     assign run_concat = (Run || keycodes[7:0] == 8'h28 || keycodes[15:8] == 8'h28 || keycodes[23:16] == 8'h28 || keycodes[31:24] == 8'h28);
+    assign finish_concat = (Finish || keycodes[7:0] == 8'h29 || keycodes[15:8] == 8'h29 || keycodes[23:16] == 8'h29 || keycodes[31:24] == 8'h29);
     //Creates a 3 Second Timer
     logic [$clog2(180)-1:0] delay_counter;
     logic [$clog2(120)-1:0] finish_counter;
@@ -58,7 +59,7 @@ module  notes
             delay_counter <= 0;
         end
         
-        if (Finish) begin
+        if (finish_concat) begin
            FCount <= 1;
         end else if (Reset || (finish_counter > 120)) begin
            FCount <= 0;                
@@ -115,7 +116,7 @@ module  notes
                 end
                 (play):
                 begin
-                    if(Finish || keycodes[7:0] == 8'h29 || keycodes[15:8] == 8'h29 || keycodes[23:16] == 8'h29 || keycodes[31:24] == 8'h29) begin
+                    if(finish_concat) begin
                         state_next = finish_0;
                     end else begin
                         state_next = state_curr;
@@ -180,7 +181,92 @@ module  notes
     notes_rom notes_rom(.addr(rom_addr), .data(rom_data), .finish(Finish));
     
     assign rom_addr = rom_count;
-    assign NotesSelect = rom_data;
+   
+    //Hitting Notes
+    logic [4:0] score_add, hit_on[8];
+    logic [7:0] score;
+    logic score_counted;
+    logic [7:0] note_keycodes [5] = {8'h04, 8'h16, 8'h07, 8'h09, 8'h0A};
+    logic key_press[5], key_press_old[5];
+   
+    assign score_out = score;
+    assign hit_out = score_add;
+
+    always_comb
+    begin: Note_Select_Create
+        for(int i = 0; i < 5; i++) begin
+            for(int j = 0; j < 8; j++) begin
+                NotesSelect[j][i] = rom_data[j][i] & hit_on[j][i];
+            end
+        end
+    end
+        
+    always_comb
+    begin: Key_Presses
+        for(int i = 0; i < 5; i++) begin
+            key_press[i] = 1'b0;
+            for(int j = 0; j < 8; j++) begin
+                if(keycodes[7:0] == note_keycodes[i] || keycodes[15:8] == note_keycodes[i] || keycodes[23:16] == note_keycodes[i] || keycodes[31:16] == note_keycodes[i]) begin
+                    if(NotesY[j] >= 10'd400 && NotesY[j] <= 10'd440) 
+                        key_press[i] = 1'b1;
+                end
+            end
+        end    
+    end
+    
+    always_ff @(posedge frame_clk)
+    begin: Score
+        for(int i = 0; i < 5; i++) begin
+            key_press_old[i] <= key_press[i];
+            for(int j = 0; j < 8; j++) begin
+                if(Play) begin
+                    if(key_press[i] && !key_press_old[i] && NotesSelect[j][i]) begin //If posedge key press and there is a note there
+                        if(NotesY[j] >= 10'd400 && NotesY[j] <= 10'd440) begin //If note is actually in the correct range
+                            score_add[i] <= 1'b1;
+                            hit_on[j][i] <= 1'b0;
+                        end else if (NotesY[j] >= 10'd480) begin
+                            score_add[i] <= 1'b0;
+                            hit_on[j][i] <= 1'b1;
+                        end else begin
+                            score_add[i] <= 1'b0;
+                            hit_on[j][i] <= hit_on[j][i];
+                        end
+                    end else begin
+                        score_add[i] <= 1'b0;
+                        hit_on[j][i] <= hit_on[j][i];
+                    end
+                end else begin
+                    hit_on[j][i] <= 1'b1;
+                    score_add[i] <= 1'b0;
+                end
+            end
+        end
+        score <= score + score_add[0] + score_add[1] + score_add[2] + score_add[3] + score_add[4]; 
+    end
+        
+//    always_ff @(posedge frame_clk)
+//    begin: Score
+//        for(int i = 0; i < 5; i++) begin
+//            key_press_old[i] <= key_press[i];
+//            if(Play) begin
+//                if(new_note[i]) begin
+//                    hit_on[i] <= 1'b0;    
+//                end else if (key_press[i] && !key_press_old[i] && NotesSelect[i]) begin
+//                    hit_on[i] <= 1'b1;
+//                end else begin
+//                    hit_on[i] <= hit_on[i];    
+//                end
+//            end else begin
+//                hit_on[i] <= 1'b0;
+//            end
+//            if(key_press[i] && !key_press_old[i] && NotesSelect[i]) begin
+//                score_add[i] <= 1'b1;
+//            end else begin
+//                score_add[i] <= 1'b0;
+//            end
+//        end
+//        score <= score + score_add[0] + score_add[1] + score_add[2] + score_add[3] + score_add[4]; 
+//    end
     
     always_comb 
     begin: Moving_Notes 
@@ -208,47 +294,6 @@ module  notes
     assign Notes_X_next = NOTES_X;
     assign NotesSX = NOTES_SIZE;
     assign NotesSY = NOTES_SIZE;
-   
-    //Hitting Notes
-    logic [4:0] score_add, hit_note;
-    logic [7:0] score;
-    logic score_counted;
-    logic [7:0] note_keycodes [5] = {8'h04, 8'h16, 8'h07, 8'h09, 8'h0A};
-    logic key_press[5], key_press_old[5];
-   
-    assign score_out = score;
-    assign hit_out = score_add;
-    
-    always_comb
-    begin: Key_Presses
-        for(int i = 0; i < 5; i++) begin
-            key_press[i] = 1'b0;
-            for(int j = 0; j < 8; j++) begin
-                if(keycodes[7:0] == note_keycodes[i] || keycodes[15:8] == note_keycodes[i] || keycodes[23:16] == note_keycodes[i] || keycodes[31:16] == note_keycodes[i]) begin
-                    if(NotesY[j] >= 10'd410 && NotesY[j] <= 10'd430) 
-                        key_press[i] = 1'b1;
-                end
-            end
-        end    
-    end
-    
-    always_ff @(posedge frame_clk)
-    begin: Score
-        for(int i = 0; i < 5; i++) begin
-            key_press_old[i] <= key_press[i];
-            if(key_press[i] && !key_press_old[i] && NotesSelect[i])
-            begin
-                score_add[i] <= 1'b1;
-//                hit_note[i] <= 1'b1;
-             end else begin
-                score_add[i] <= 1'b0;
-//                if(NotesX[i] >= 480) begin
-//                    hit_note[i] <= 1'b0;        
-//                end
-            end
-        end
-        score <= score + score_add[0] + score_add[1] + score_add[2] + score_add[3] + score_add[4]; 
-    end
     
     always_ff @(posedge frame_clk) //make sure the frame clock is instantiated correctly
     begin: Move_Notes
