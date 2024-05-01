@@ -137,7 +137,7 @@ module color_mapper(   input  logic signed [10:0] NotesX[5], NotesY[8],
     //Hitline Select
     always_comb
     begin: Hit_line
-        if ((DrawX < 480) && (DrawX >= 160)  && (DrawY <= 430) && (DrawY > 410) && state == 3'b100)
+        if ((DrawX < 480) && (DrawX >= 160)  && (DrawY <= 430) && (DrawY > 410) && state != 3'b000)
             line_on = 1'b1;
         else
             line_on = 1'b0;
@@ -183,7 +183,7 @@ module color_mapper(   input  logic signed [10:0] NotesX[5], NotesY[8],
     always_comb
     begin
         count_on = 1'b0;
-        if(DrawX > countX && DrawX <= (countX + countSX) && DrawY >= countY && DrawY < (countY + countSY) && (state == 3'b001 || state == 3'b010 || state == 3'b011)) begin
+        if(DrawX > countX && DrawX <= (countX + countSX - 1) && DrawY >= countY && DrawY < (countY + countSY - 1) && (state == 3'b001 || state == 3'b010 || state == 3'b011)) begin
             if (!(count_red == 4'hf && count_green == 4'h0 && count_blue == 4'hf)) begin 
                 count_on = 1'b1;
             end

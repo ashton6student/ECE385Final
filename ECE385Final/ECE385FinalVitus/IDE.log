@@ -5050,3 +5050,118 @@ con
 ----------------End of Script----------------
 
 21:52:11 INFO  : Disconnected from the channel tcfchan#38.
+10:54:11 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+10:54:12 INFO  : Jtag cable 'RealDigital Boo 887429230015A' is selected.
+10:54:12 INFO  : 'jtag frequency' command is executed.
+10:54:12 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230015A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+10:54:13 INFO  : Device configured successfully with "C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/ECE385FinalVitus/_ide/bitstream/mb_usb_hdmi_top.bit"
+10:54:13 INFO  : Context for processor 'microblaze_0' is selected.
+10:54:14 INFO  : Hardware design and registers information is loaded from 'C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/mb_usb_hdmi_top/export/mb_usb_hdmi_top/hw/mb_usb_hdmi_top.xsa'.
+10:54:14 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+10:54:14 INFO  : Context for processor 'microblaze_0' is selected.
+10:54:14 INFO  : System reset is completed.
+10:54:17 INFO  : 'after 3000' command is executed.
+10:54:17 INFO  : Context for processor 'microblaze_0' is selected.
+10:54:17 INFO  : The application 'C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/ECE385FinalVitus/Debug/ECE385FinalVitus.elf' is downloaded to processor 'microblaze_0'.
+10:54:17 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230015A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/ECE385FinalVitus/_ide/bitstream/mb_usb_hdmi_top.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/mb_usb_hdmi_top/export/mb_usb_hdmi_top/hw/mb_usb_hdmi_top.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/ECE385FinalVitus/Debug/ECE385FinalVitus.elf
+----------------End of Script----------------
+
+10:54:17 INFO  : Context for processor 'microblaze_0' is selected.
+10:54:17 INFO  : 'con' command is executed.
+10:54:17 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+10:54:17 INFO  : Disconnected from the channel tcfchan#39.
+11:49:05 INFO  : Checking for BSP changes to sync application flags for project 'ECE385FinalVitus'...
+11:49:20 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+11:49:20 INFO  : Jtag cable 'RealDigital Boo 887429230015A' is selected.
+11:49:20 INFO  : 'jtag frequency' command is executed.
+11:49:20 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230015A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+11:49:21 INFO  : Device configured successfully with "C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/ECE385FinalVitus/_ide/bitstream/mb_usb_hdmi_top.bit"
+11:49:22 INFO  : Context for processor 'microblaze_0' is selected.
+11:49:22 INFO  : Hardware design and registers information is loaded from 'C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/mb_usb_hdmi_top/export/mb_usb_hdmi_top/hw/mb_usb_hdmi_top.xsa'.
+11:49:22 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+11:49:22 INFO  : Context for processor 'microblaze_0' is selected.
+11:49:22 INFO  : System reset is completed.
+11:49:25 INFO  : 'after 3000' command is executed.
+11:49:25 INFO  : Context for processor 'microblaze_0' is selected.
+11:49:25 INFO  : The application 'C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/ECE385FinalVitus/Debug/ECE385FinalVitus.elf' is downloaded to processor 'microblaze_0'.
+11:49:25 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230015A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/ECE385FinalVitus/_ide/bitstream/mb_usb_hdmi_top.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/mb_usb_hdmi_top/export/mb_usb_hdmi_top/hw/mb_usb_hdmi_top.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/ECE385FinalVitus/Debug/ECE385FinalVitus.elf
+----------------End of Script----------------
+
+11:49:25 INFO  : Context for processor 'microblaze_0' is selected.
+11:49:25 INFO  : 'con' command is executed.
+11:49:25 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+11:49:25 INFO  : Disconnected from the channel tcfchan#40.
+12:36:12 INFO  : Hardware specification for platform project 'mb_usb_hdmi_top' is updated.
+12:36:35 INFO  : Result from executing command 'getProjects': mb_usb_hdmi_top
+12:36:35 INFO  : Result from executing command 'getPlatforms': mb_usb_hdmi_top|C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/mb_usb_hdmi_top/export/mb_usb_hdmi_top/mb_usb_hdmi_top.xpfm
+12:36:35 INFO  : Checking for BSP changes to sync application flags for project 'ECE385FinalVitus'...
+12:36:38 INFO  : The hardware specification used by project 'ECE385FinalVitus' is out of sync with the platform. Resource files extracted from the hardware specification will be updated.
+12:36:38 INFO  : The file 'C:\Users\merli\ECE385Final\ECE385Final\ECE385FinalVitus\ECE385FinalVitus\_ide\bitstream\mb_usb_hdmi_top.bit' stored in project is removed.
+12:36:38 INFO  : The file 'C:\Users\merli\ECE385Final\ECE385Final\ECE385FinalVitus\ECE385FinalVitus\_ide\bitstream\mb_usb_hdmi_top.mmi' stored in project is removed.
+12:36:38 INFO  : The updated bitstream files are copied from platform to folder 'C:\Users\merli\ECE385Final\ECE385Final\ECE385FinalVitus\ECE385FinalVitus\_ide\bitstream' in project 'ECE385FinalVitus'.
+12:36:46 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:36:46 INFO  : Jtag cable 'RealDigital Boo 887429230015A' is selected.
+12:36:46 INFO  : 'jtag frequency' command is executed.
+12:36:46 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230015A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+12:36:48 INFO  : Device configured successfully with "C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/ECE385FinalVitus/_ide/bitstream/mb_usb_hdmi_top.bit"
+12:36:48 INFO  : Context for processor 'microblaze_0' is selected.
+12:36:48 INFO  : Hardware design and registers information is loaded from 'C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/mb_usb_hdmi_top/export/mb_usb_hdmi_top/hw/mb_usb_hdmi_top.xsa'.
+12:36:48 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+12:36:48 INFO  : Context for processor 'microblaze_0' is selected.
+12:36:48 INFO  : System reset is completed.
+12:36:51 INFO  : 'after 3000' command is executed.
+12:36:51 INFO  : Context for processor 'microblaze_0' is selected.
+12:36:51 INFO  : The application 'C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/ECE385FinalVitus/Debug/ECE385FinalVitus.elf' is downloaded to processor 'microblaze_0'.
+12:36:51 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230015A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/ECE385FinalVitus/_ide/bitstream/mb_usb_hdmi_top.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/mb_usb_hdmi_top/export/mb_usb_hdmi_top/hw/mb_usb_hdmi_top.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/merli/ECE385Final/ECE385Final/ECE385FinalVitus/ECE385FinalVitus/Debug/ECE385FinalVitus.elf
+----------------End of Script----------------
+
+12:36:51 INFO  : Context for processor 'microblaze_0' is selected.
+12:36:51 INFO  : 'con' command is executed.
+12:36:51 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+12:36:51 INFO  : Disconnected from the channel tcfchan#42.
+13:04:26 INFO  : Checking for BSP changes to sync application flags for project 'ECE385FinalVitus'...

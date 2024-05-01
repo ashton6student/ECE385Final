@@ -38,13 +38,16 @@ module  notes
 );
     //State Logic Control
     //Control Signals
-    logic Play;
+    logic Play, Finish;
+    logic run_concat;
+    assign run_concat = (Run || keycodes[7:0] == 8'h28 || keycodes[15:8] == 8'h28 || keycodes[23:16] == 8'h28 || keycodes[31:24] == 8'h28);
     //Creates a 3 Second Timer
     logic [$clog2(180)-1:0] delay_counter;
-    logic Count;
+    logic [$clog2(120)-1:0] finish_counter;
+    logic Count, FCount;
     
     always_ff @(posedge frame_clk) begin
-        if (Run) begin
+        if (run_concat) begin
            Count <= 1;
         end else if (Reset || (delay_counter > 180)) begin
            Count <= 0;                
@@ -54,10 +57,21 @@ module  notes
         end else begin
             delay_counter <= 0;
         end
+        
+        if (Finish) begin
+           FCount <= 1;
+        end else if (Reset || (finish_counter > 120)) begin
+           FCount <= 0;                
+        end
+        if (FCount) begin
+            finish_counter <= finish_counter + 1;
+        end else begin
+            finish_counter <= 0;
+        end
     end
     
     //State Machine
-    enum logic [2:0] {start, count_1, count_2, count_3, play, finish} state_next, state_curr;
+    enum logic [2:0] {start, count_1, count_2, count_3, play, finish_0, finish_1, finish_2} state_next, state_curr;
     assign state_out = state_curr;
     
     //Next State Logic
@@ -69,7 +83,7 @@ module  notes
             unique case(state_curr)
                 (start): 
                 begin
-                    if (Run || keycodes[7:0] == 8'h28 || keycodes[15:8] == 8'h28 || keycodes[23:16] == 8'h28 || keycodes[31:24] == 8'h28) begin
+                    if (run_concat) begin
                         state_next = count_1;        
                     end else begin
                         state_next = state_curr;
@@ -101,11 +115,27 @@ module  notes
                 end
                 (play):
                 begin
-                    if(Run || keycodes[7:0] == 8'h29 || keycodes[15:8] == 8'h29 || keycodes[23:16] == 8'h29 || keycodes[31:24] == 8'h29) begin
-                        state_next = start;
+                    if(Finish || keycodes[7:0] == 8'h29 || keycodes[15:8] == 8'h29 || keycodes[23:16] == 8'h29 || keycodes[31:24] == 8'h29) begin
+                        state_next = finish_0;
                     end else begin
                         state_next = state_curr;
                     end
+                end
+                (finish_0):
+                begin
+                    if(finish_counter > 60) begin
+                        state_next = finish_1;
+                    end else begin
+                        state_next = state_curr;
+                    end                    
+                end
+                (finish_1):
+                begin
+                    if(finish_counter > 120) begin
+                        state_next = finish_2;
+                    end else begin
+                        state_next = state_curr;
+                    end                    
                 end
                 default: state_next = start;
             endcase
@@ -117,6 +147,8 @@ module  notes
     begin: Control_Signals
         unique case(state_curr)
             (play): Play = 1'b1;
+            (finish_0): Play = 1'b1;
+            (finish_1): Play = 1'b1;
             default: Play = 1'b0;
         endcase
     end
@@ -145,7 +177,7 @@ module  notes
     logic [6:0] rom_count[8];
     logic begin_notes, new_note[8];
     
-    notes_rom notes_rom(.addr(rom_addr), .data(rom_data));
+    notes_rom notes_rom(.addr(rom_addr), .data(rom_data), .finish(Finish));
     
     assign rom_addr = rom_count;
     assign NotesSelect = rom_data;

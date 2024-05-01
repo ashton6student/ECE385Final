@@ -1,11 +1,21 @@
 module notes_rom ( input logic  [6:0]	addr[8],
-				   output logic [4:0]	data[8]
+				   output logic [4:0]	data[8],
+				   output logic finish
 					 );
 
 	parameter ADDR_WIDTH = 7;
 	parameter DATA_WIDTH =  5;
-	logic [ADDR_WIDTH-1:0] addr_reg;
-    logic [4:0] data_new[8];				
+	logic [ADDR_WIDTH - 1:0] max;
+    assign max = (1 << ADDR_WIDTH) - 1;
+    
+    always_comb begin
+        finish = 1'b0;
+        for(int i = 0; i < 8; i++) begin
+            if(addr[i] == max) begin
+                finish = 1'b1;    
+            end
+        end
+    end				
 	// ROM definition				
 	parameter [0:2**ADDR_WIDTH-1][DATA_WIDTH-1:0] ROM = {
 	    //Note: It takes two seconds given a note velocity of 4 for the first row of notes to reach the hit bar.
