@@ -4,9 +4,9 @@ module countdown_palette (
 );
 
 localparam [0:3][11:0] palette = {
-	{4'h0, 4'h0, 4'h0},
-	{4'hF, 4'h0, 4'hF},
 	{4'h0, 4'hD, 4'hA},
+	{4'hF, 4'h0, 4'hF},
+	{4'h0, 4'h0, 4'h0},
 	{4'hF, 4'h0, 4'hF}
 };
 

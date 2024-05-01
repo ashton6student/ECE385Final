@@ -101,7 +101,7 @@ module  notes
                 end
                 (play):
                 begin
-                    if(keycodes[7:0] == 8'h29 || keycodes[15:8] == 8'h29 || keycodes[23:16] == 8'h29 || keycodes[31:24] == 8'h29) begin
+                    if(Run || keycodes[7:0] == 8'h29 || keycodes[15:8] == 8'h29 || keycodes[23:16] == 8'h29 || keycodes[31:24] == 8'h29) begin
                         state_next = start;
                     end else begin
                         state_next = state_curr;

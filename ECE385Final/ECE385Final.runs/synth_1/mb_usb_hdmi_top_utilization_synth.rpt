@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Tue Apr 30 21:13:44 2024
+| Date         : Tue Apr 30 22:00:33 2024
 | Host         : DESKTOP-129R2SH running 64-bit major release  (build 9200)
 | Command      : report_utilization -file mb_usb_hdmi_top_utilization_synth.rpt -pb mb_usb_hdmi_top_utilization_synth.pb
 | Design       : mb_usb_hdmi_top
@@ -31,11 +31,11 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*             | 5373 |     0 |          0 |     32600 | 16.48 |
-|   LUT as Logic          | 5373 |     0 |          0 |     32600 | 16.48 |
+| Slice LUTs*             | 5368 |     0 |          0 |     32600 | 16.47 |
+|   LUT as Logic          | 5368 |     0 |          0 |     32600 | 16.47 |
 |   LUT as Memory         |    0 |     0 |          0 |      9600 |  0.00 |
-| Slice Registers         |  175 |     0 |          0 |     65200 |  0.27 |
-|   Register as Flip Flop |  175 |     0 |          0 |     65200 |  0.27 |
+| Slice Registers         |  178 |     0 |          0 |     65200 |  0.27 |
+|   Register as Flip Flop |  178 |     0 |          0 |     65200 |  0.27 |
 |   Register as Latch     |    0 |     0 |          0 |     65200 |  0.00 |
 | F7 Muxes                |    0 |     0 |          0 |     16300 |  0.00 |
 | F8 Muxes                |    0 |     0 |          0 |      8150 |  0.00 |
@@ -57,7 +57,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
-| 22    |          Yes |           - |        Reset |
+| 25    |          Yes |           - |        Reset |
 | 1     |          Yes |         Set |            - |
 | 152   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -148,17 +148,17 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT2     | 1689 |                 LUT |
-| LUT4     | 1526 |                 LUT |
-| LUT3     | 1304 |                 LUT |
-| LUT6     | 1222 |                 LUT |
+| LUT2     | 1673 |                 LUT |
+| LUT4     | 1511 |                 LUT |
+| LUT3     | 1295 |                 LUT |
+| LUT6     | 1203 |                 LUT |
 | CARRY4   | 1124 |          CarryLogic |
-| LUT5     |  650 |                 LUT |
-| LUT1     |  621 |                 LUT |
+| LUT5     |  681 |                 LUT |
+| LUT1     |  622 |                 LUT |
 | FDRE     |  152 |        Flop & Latch |
 | DSP48E1  |   45 |    Block Arithmetic |
 | OBUF     |   29 |                  IO |
-| FDCE     |   22 |        Flop & Latch |
+| FDCE     |   25 |        Flop & Latch |
 | IBUF     |    6 |                  IO |
 | FDSE     |    1 |        Flop & Latch |
 | BUFG     |    1 |               Clock |

@@ -205,3 +205,5 @@ platform config -updatehw {C:/Users/merli/ECE385Final/ECE385Final/mb_usb_hdmi_to
 platform generate -domains 
 platform config -updatehw {C:/Users/merli/ECE385Final/ECE385Final/mb_usb_hdmi_top.xsa}
 platform generate -domains 
+platform config -updatehw {C:/Users/merli/ECE385Final/ECE385Final/mb_usb_hdmi_top.xsa}
+platform generate -domains 
