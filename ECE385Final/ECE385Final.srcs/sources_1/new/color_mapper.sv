@@ -76,29 +76,30 @@ module color_mapper(   input  logic signed [10:0] NotesX[5], NotesY[8],
     logic [3:0] title_red, title_green, title_blue;    
     assign title_address = (DrawX - titleX) + ((DrawY - titleY) * titleSX);
 
-     //countdown
-     parameter [9:0] countX = 308;
-     parameter [9:0] countY = 230;
-     parameter [9:0] countSX = 24;
-     parameter [9:0] countSXtot = 238;
-     parameter [9:0] countSY = 20;
+    //countdown
+    parameter [9:0] countX = 289;
+    parameter [9:0] countY = 212;
+    parameter [9:0] countSX = 62;
+    parameter [9:0] countSXtot = 184;
+    parameter [9:0] countSY = 56;
      
 
-     logic [13:0] count_address;
-     logic [1:0] count_q;
+    logic [13:0] count_address;
+    logic [1:0] count_q;
  
-     logic [3:0] count_red, count_green, count_blue;
+    logic [3:0] count_red, count_green, count_blue;
     
     always_comb
     begin
         count_address = 14'b0;
-        if(DrawX > countX && DrawX <= (countX + countSX) && DrawY >= countY && DrawY < (countY + countSY)) begin
+        if(DrawX > countX && DrawX <= (countX + countSX) && DrawY >= countY && DrawY < (countY + countSY)&& (state == 3'b001 || state == 3'b010 || state == 3'b011)) begin
             count_address = (DrawX - countX) + (countSX * (state - 1))  + ((DrawY - countY) * countSXtot);    
+//            count_address = (DrawX - countX) + ((DrawY - countY) * countSXtot);    
         end
     end
-    // assign count_address = ((DrawX * 175) / 175) + (((DrawY * 56) / 56) * 175);
-    // assign count_address = (((DrawX  * 175) / 175) + (((DrawY * 56) / 56) * 175);
-
+    
+    //score
+    
     //Rom clock
     logic negedge_vga_clk;
     assign negedge_vga_clk = ~vga_clk;
@@ -136,7 +137,7 @@ module color_mapper(   input  logic signed [10:0] NotesX[5], NotesY[8],
     //Hitline Select
     always_comb
     begin: Hit_line
-        if ((DrawX < 480) && (DrawX >= 160)  && (DrawY <= 430) && (DrawY > 420) && state == 3'b100)
+        if ((DrawX < 480) && (DrawX >= 160)  && (DrawY <= 430) && (DrawY > 410) && state == 3'b100)
             line_on = 1'b1;
         else
             line_on = 1'b0;
@@ -170,15 +171,12 @@ module color_mapper(   input  logic signed [10:0] NotesX[5], NotesY[8],
     //Titlescreen Select
     always_comb
     begin: title_screen
+        title_on = 1'b0;
         if(DrawX > titleX && DrawX <= (titleX + titleSX) && DrawY >= titleY && DrawY < (titleY + titleSY) && state == 3'b000) begin
             if(!(title_red == 4'hf && title_green == 4'h0 && title_blue == 4'hf)) begin
                 title_on = 1'b1;
-            end else begin
-                title_on = 1'b0;
             end
-        end else begin
-            title_on = 1'b0;
-        end 
+        end
     end
     
     //Countdown Select
@@ -186,7 +184,9 @@ module color_mapper(   input  logic signed [10:0] NotesX[5], NotesY[8],
     begin
         count_on = 1'b0;
         if(DrawX > countX && DrawX <= (countX + countSX) && DrawY >= countY && DrawY < (countY + countSY) && (state == 3'b001 || state == 3'b010 || state == 3'b011)) begin
-           count_on = 1'b1;
+            if (!(count_red == 4'hf && count_green == 4'h0 && count_blue == 4'hf)) begin 
+                count_on = 1'b1;
+            end
         end
     end
     

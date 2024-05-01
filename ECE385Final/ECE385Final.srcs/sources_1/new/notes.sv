@@ -140,9 +140,9 @@ module  notes
     logic signed [10:0] Notes_Y_next[8];
     
     //Notes Rom
-    logic [3:0] rom_addr[8];
+    logic [6:0] rom_addr[8];
     logic [4:0]	 rom_data[8];
-    logic [3:0] rom_count[8];
+    logic [6:0] rom_count[8];
     logic begin_notes, new_note[8];
     
     notes_rom notes_rom(.addr(rom_addr), .data(rom_data));
@@ -178,7 +178,7 @@ module  notes
     assign NotesSY = NOTES_SIZE;
    
     //Hitting Notes
-    logic [4:0] score_add, hit_bar;
+    logic [4:0] score_add, hit_note;
     logic [7:0] score;
     logic score_counted;
     logic [7:0] note_keycodes [5] = {8'h04, 8'h16, 8'h07, 8'h09, 8'h0A};
@@ -193,7 +193,7 @@ module  notes
             key_press[i] = 1'b0;
             for(int j = 0; j < 8; j++) begin
                 if(keycodes[7:0] == note_keycodes[i] || keycodes[15:8] == note_keycodes[i] || keycodes[23:16] == note_keycodes[i] || keycodes[31:16] == note_keycodes[i]) begin
-                    if(NotesY[j] >= 10'd400) 
+                    if(NotesY[j] >= 10'd410 && NotesY[j] <= 10'd430) 
                         key_press[i] = 1'b1;
                 end
             end
@@ -205,9 +205,15 @@ module  notes
         for(int i = 0; i < 5; i++) begin
             key_press_old[i] <= key_press[i];
             if(key_press[i] && !key_press_old[i] && NotesSelect[i])
+            begin
                 score_add[i] <= 1'b1;
-            else
+//                hit_note[i] <= 1'b1;
+             end else begin
                 score_add[i] <= 1'b0;
+//                if(NotesX[i] >= 480) begin
+//                    hit_note[i] <= 1'b0;        
+//                end
+            end
         end
         score <= score + score_add[0] + score_add[1] + score_add[2] + score_add[3] + score_add[4]; 
     end

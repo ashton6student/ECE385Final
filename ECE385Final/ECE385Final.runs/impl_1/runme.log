@@ -10,7 +10,305 @@
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
 source mb_usb_hdmi_top.tcl -notrace
-create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 373.254 ; gain = 52.305
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/merli/RD_hdmi_ip2020/hdmi_tx_1.0'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2022.2/data/ip'.
+Command: link_design -top mb_usb_hdmi_top -part xc7s50csga324-1
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Device 21-403] Loading part xc7s50csga324-1
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp' for cell 'clk_wiz'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/hdmi_tx_0/hdmi_tx_0.dcp' for cell 'vga_to_hdmi'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/blue_rom/blue_rom.dcp' for cell 'color_instance/blue_rom'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/countdown_rom/countdown_rom.dcp' for cell 'color_instance/countdown_rom'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/fretboard_rom/fretboard_rom.dcp' for cell 'color_instance/fretboard_rom'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/green_rom/green_rom.dcp' for cell 'color_instance/green_rom'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/orange_rom/orange_rom.dcp' for cell 'color_instance/orange_rom'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/red_rom/red_rom.dcp' for cell 'color_instance/red_rom'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/titleScreen/titleScreen.dcp' for cell 'color_instance/titleScreen_rom'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/vaporwave_rom/vaporwave_rom.dcp' for cell 'color_instance/vaporwave_rom'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/yellow_rom/yellow_rom.dcp' for cell 'color_instance/yellow_rom'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_uartlite_0_0/mb_block_axi_uartlite_0_0.dcp' for cell 'mb_block_i/axi_uartlite_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_clk_wiz_1_0/mb_block_clk_wiz_1_0.dcp' for cell 'mb_block_i/clk_wiz_1'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_0_1/mb_block_axi_gpio_0_1.dcp' for cell 'mb_block_i/gpio_usb_int'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_0_2/mb_block_axi_gpio_0_2.dcp' for cell 'mb_block_i/gpio_usb_keycode'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_0_0/mb_block_axi_gpio_0_0.dcp' for cell 'mb_block_i/gpio_usb_rst'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_mdm_1_0/mb_block_mdm_1_0.dcp' for cell 'mb_block_i/mdm_1'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_3/mb_block_microblaze_0_3.dcp' for cell 'mb_block_i/microblaze_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_axi_intc_0/mb_block_microblaze_0_axi_intc_0.dcp' for cell 'mb_block_i/microblaze_0_axi_intc'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_rst_clk_wiz_1_100M_0/mb_block_rst_clk_wiz_1_100M_0.dcp' for cell 'mb_block_i/rst_clk_wiz_1_100M'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_quad_spi_0_0/mb_block_axi_quad_spi_0_0.dcp' for cell 'mb_block_i/spi_usb'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_timer_0_0/mb_block_axi_timer_0_0.dcp' for cell 'mb_block_i/timer_usb_axi'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_xbar_0/mb_block_xbar_0.dcp' for cell 'mb_block_i/microblaze_0_axi_periph/xbar'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_dlmb_bram_if_cntlr_2/mb_block_dlmb_bram_if_cntlr_2.dcp' for cell 'mb_block_i/microblaze_0_local_memory/dlmb_bram_if_cntlr'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_dlmb_v10_2/mb_block_dlmb_v10_2.dcp' for cell 'mb_block_i/microblaze_0_local_memory/dlmb_v10'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_ilmb_bram_if_cntlr_2/mb_block_ilmb_bram_if_cntlr_2.dcp' for cell 'mb_block_i/microblaze_0_local_memory/ilmb_bram_if_cntlr'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_ilmb_v10_2/mb_block_ilmb_v10_2.dcp' for cell 'mb_block_i/microblaze_0_local_memory/ilmb_v10'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_lmb_bram_2/mb_block_lmb_bram_2.dcp' for cell 'mb_block_i/microblaze_0_local_memory/lmb_bram'
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.592 . Memory (MB): peak = 928.984 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1592 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+WARNING: [Opt 31-35] Removing redundant IBUF, clk_wiz/inst/clkin1_ibufg, from the path connected to top-level port: Clk 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-35] Removing redundant IBUF, mb_block_i/clk_wiz_1/inst/clkin1_ibufg, from the path connected to top-level port: Clk 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'clk_wiz/clk_in1' is not directly connected to top level port. Synthesis is ignored for IBUF_LOW_PWR but preserved for implementation.
+WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'mb_block_i/clk_wiz_1/clk_in1' is not directly connected to top level port. Synthesis is ignored for IBUF_LOW_PWR but preserved for implementation.
+Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_clk_wiz_1_0/mb_block_clk_wiz_1_0_board.xdc] for cell 'mb_block_i/clk_wiz_1/inst'
+Finished Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_clk_wiz_1_0/mb_block_clk_wiz_1_0_board.xdc] for cell 'mb_block_i/clk_wiz_1/inst'
+Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_clk_wiz_1_0/mb_block_clk_wiz_1_0.xdc] for cell 'mb_block_i/clk_wiz_1/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_clk_wiz_1_0/mb_block_clk_wiz_1_0.xdc:57]
+INFO: [Timing 38-2] Deriving generated clocks [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_clk_wiz_1_0/mb_block_clk_wiz_1_0.xdc:57]
+get_clocks: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1554.230 ; gain = 482.016
+Finished Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_clk_wiz_1_0/mb_block_clk_wiz_1_0.xdc] for cell 'mb_block_i/clk_wiz_1/inst'
+Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_rst_clk_wiz_1_100M_0/mb_block_rst_clk_wiz_1_100M_0_board.xdc] for cell 'mb_block_i/rst_clk_wiz_1_100M/U0'
+Finished Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_rst_clk_wiz_1_100M_0/mb_block_rst_clk_wiz_1_100M_0_board.xdc] for cell 'mb_block_i/rst_clk_wiz_1_100M/U0'
+Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_rst_clk_wiz_1_100M_0/mb_block_rst_clk_wiz_1_100M_0.xdc] for cell 'mb_block_i/rst_clk_wiz_1_100M/U0'
+Finished Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_rst_clk_wiz_1_100M_0/mb_block_rst_clk_wiz_1_100M_0.xdc] for cell 'mb_block_i/rst_clk_wiz_1_100M/U0'
+Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_3/mb_block_microblaze_0_3.xdc] for cell 'mb_block_i/microblaze_0/U0'
+Finished Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_3/mb_block_microblaze_0_3.xdc] for cell 'mb_block_i/microblaze_0/U0'
+Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_axi_intc_0/mb_block_microblaze_0_axi_intc_0.xdc] for cell 'mb_block_i/microblaze_0_axi_intc/U0'
+Finished Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_axi_intc_0/mb_block_microblaze_0_axi_intc_0.xdc] for cell 'mb_block_i/microblaze_0_axi_intc/U0'
+Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_0_0/mb_block_axi_gpio_0_0_board.xdc] for cell 'mb_block_i/gpio_usb_rst/U0'
+Finished Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_0_0/mb_block_axi_gpio_0_0_board.xdc] for cell 'mb_block_i/gpio_usb_rst/U0'
+Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_0_0/mb_block_axi_gpio_0_0.xdc] for cell 'mb_block_i/gpio_usb_rst/U0'
+Finished Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_0_0/mb_block_axi_gpio_0_0.xdc] for cell 'mb_block_i/gpio_usb_rst/U0'
+Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_0_1/mb_block_axi_gpio_0_1_board.xdc] for cell 'mb_block_i/gpio_usb_int/U0'
+Finished Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_0_1/mb_block_axi_gpio_0_1_board.xdc] for cell 'mb_block_i/gpio_usb_int/U0'
+Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_0_1/mb_block_axi_gpio_0_1.xdc] for cell 'mb_block_i/gpio_usb_int/U0'
+Finished Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_0_1/mb_block_axi_gpio_0_1.xdc] for cell 'mb_block_i/gpio_usb_int/U0'
+Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_0_2/mb_block_axi_gpio_0_2_board.xdc] for cell 'mb_block_i/gpio_usb_keycode/U0'
+Finished Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_0_2/mb_block_axi_gpio_0_2_board.xdc] for cell 'mb_block_i/gpio_usb_keycode/U0'
+Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_0_2/mb_block_axi_gpio_0_2.xdc] for cell 'mb_block_i/gpio_usb_keycode/U0'
+Finished Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_0_2/mb_block_axi_gpio_0_2.xdc] for cell 'mb_block_i/gpio_usb_keycode/U0'
+Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_timer_0_0/mb_block_axi_timer_0_0.xdc] for cell 'mb_block_i/timer_usb_axi/U0'
+Finished Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_timer_0_0/mb_block_axi_timer_0_0.xdc] for cell 'mb_block_i/timer_usb_axi/U0'
+Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_quad_spi_0_0/mb_block_axi_quad_spi_0_0_board.xdc] for cell 'mb_block_i/spi_usb/U0'
+Finished Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_quad_spi_0_0/mb_block_axi_quad_spi_0_0_board.xdc] for cell 'mb_block_i/spi_usb/U0'
+Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_quad_spi_0_0/mb_block_axi_quad_spi_0_0.xdc] for cell 'mb_block_i/spi_usb/U0'
+Finished Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_quad_spi_0_0/mb_block_axi_quad_spi_0_0.xdc] for cell 'mb_block_i/spi_usb/U0'
+Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_uartlite_0_0/mb_block_axi_uartlite_0_0_board.xdc] for cell 'mb_block_i/axi_uartlite_0/U0'
+Finished Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_uartlite_0_0/mb_block_axi_uartlite_0_0_board.xdc] for cell 'mb_block_i/axi_uartlite_0/U0'
+Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_uartlite_0_0/mb_block_axi_uartlite_0_0.xdc] for cell 'mb_block_i/axi_uartlite_0/U0'
+Finished Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_uartlite_0_0/mb_block_axi_uartlite_0_0.xdc] for cell 'mb_block_i/axi_uartlite_0/U0'
+Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'clk_wiz/inst'
+Finished Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'clk_wiz/inst'
+Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'clk_wiz/inst'
+INFO: [Timing 38-2] Deriving generated clocks [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:57]
+Finished Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'clk_wiz/inst'
+Parsing XDC File [C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/constrs_1/imports/pin_assignment/mb_usb_hdmi_top.xdc]
+Finished Parsing XDC File [C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/constrs_1/imports/pin_assignment/mb_usb_hdmi_top.xdc]
+Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_mdm_1_0/mb_block_mdm_1_0.xdc] for cell 'mb_block_i/mdm_1/U0'
+Finished Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_mdm_1_0/mb_block_mdm_1_0.xdc] for cell 'mb_block_i/mdm_1/U0'
+Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_axi_intc_0/mb_block_microblaze_0_axi_intc_0_clocks.xdc] for cell 'mb_block_i/microblaze_0_axi_intc/U0'
+Finished Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_axi_intc_0/mb_block_microblaze_0_axi_intc_0_clocks.xdc] for cell 'mb_block_i/microblaze_0_axi_intc/U0'
+Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_quad_spi_0_0/mb_block_axi_quad_spi_0_0_clocks.xdc] for cell 'mb_block_i/spi_usb/U0'
+Finished Parsing XDC File [c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_axi_quad_spi_0_0/mb_block_axi_quad_spi_0_0_clocks.xdc] for cell 'mb_block_i/spi_usb/U0'
+WARNING: [XPM_CDC_GRAY: TCL-1000] The source and destination clocks are the same. 
+     Instance: mb_block_i/spi_usb/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_inst 
+  This will add unnecessary latency to the design. Please check the design for the following: 
+ 1) Manually instantiated XPM_CDC modules: Xilinx recommends that you remove these modules. 
+ 2) Xilinx IP that contains XPM_CDC modules: Verify the connections to the IP to determine whether you can safely ignore this message.
+ [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl:16]
+WARNING: [XPM_CDC_GRAY: TCL-1000] The source and destination clocks are the same. 
+     Instance: mb_block_i/spi_usb/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_inst 
+  This will add unnecessary latency to the design. Please check the design for the following: 
+ 1) Manually instantiated XPM_CDC modules: Xilinx recommends that you remove these modules. 
+ 2) Xilinx IP that contains XPM_CDC modules: Verify the connections to the IP to determine whether you can safely ignore this message.
+ [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl:16]
+WARNING: [XPM_CDC_GRAY: TCL-1000] The source and destination clocks are the same. 
+     Instance: mb_block_i/spi_usb/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_inst 
+  This will add unnecessary latency to the design. Please check the design for the following: 
+ 1) Manually instantiated XPM_CDC modules: Xilinx recommends that you remove these modules. 
+ 2) Xilinx IP that contains XPM_CDC modules: Verify the connections to the IP to determine whether you can safely ignore this message.
+ [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl:16]
+WARNING: [XPM_CDC_GRAY: TCL-1000] The source and destination clocks are the same. 
+     Instance: mb_block_i/spi_usb/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_inst 
+  This will add unnecessary latency to the design. Please check the design for the following: 
+ 1) Manually instantiated XPM_CDC modules: Xilinx recommends that you remove these modules. 
+ 2) Xilinx IP that contains XPM_CDC modules: Verify the connections to the IP to determine whether you can safely ignore this message.
+ [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl:16]
+WARNING: [XPM_CDC_GRAY: TCL-1000] The source and destination clocks are the same. 
+     Instance: mb_block_i/spi_usb/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_dc_inst 
+  This will add unnecessary latency to the design. Please check the design for the following: 
+ 1) Manually instantiated XPM_CDC modules: Xilinx recommends that you remove these modules. 
+ 2) Xilinx IP that contains XPM_CDC modules: Verify the connections to the IP to determine whether you can safely ignore this message.
+ [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl:16]
+WARNING: [XPM_CDC_GRAY: TCL-1000] The source and destination clocks are the same. 
+     Instance: mb_block_i/spi_usb/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_dc_inst 
+  This will add unnecessary latency to the design. Please check the design for the following: 
+ 1) Manually instantiated XPM_CDC modules: Xilinx recommends that you remove these modules. 
+ 2) Xilinx IP that contains XPM_CDC modules: Verify the connections to the IP to determine whether you can safely ignore this message.
+ [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl:16]
+WARNING: [XPM_CDC_GRAY: TCL-1000] The source and destination clocks are the same. 
+     Instance: mb_block_i/spi_usb/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_dc_inst 
+  This will add unnecessary latency to the design. Please check the design for the following: 
+ 1) Manually instantiated XPM_CDC modules: Xilinx recommends that you remove these modules. 
+ 2) Xilinx IP that contains XPM_CDC modules: Verify the connections to the IP to determine whether you can safely ignore this message.
+ [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl:16]
+WARNING: [XPM_CDC_GRAY: TCL-1000] The source and destination clocks are the same. 
+     Instance: mb_block_i/spi_usb/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_dc_inst 
+  This will add unnecessary latency to the design. Please check the design for the following: 
+ 1) Manually instantiated XPM_CDC modules: Xilinx recommends that you remove these modules. 
+ 2) Xilinx IP that contains XPM_CDC modules: Verify the connections to the IP to determine whether you can safely ignore this message.
+ [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl:16]
+INFO: [Project 1-1714] 14 XPM XDC files have been applied to the design.
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 46 load pin(s).
+WARNING: [Constraints 18-5572] Instance mb_block_i/spi_usb/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/IO0_I_REG has IOB constraint set, However, the instance does not seem to have valid I/O connection to be placed into I/O. The constraint on the instance will be ignored.
+Generating merged BMM file for the design top 'mb_usb_hdmi_top'...
+INFO: [Memdata 28-144] Successfully populated the BRAM INIT strings from the following elf files: c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_3/data/mb_bootloop_le.elf 
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 1554.230 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 247 instances were transformed.
+  LUT6_2 => LUT6_2 (LUT5, LUT6): 145 instances
+  RAM16X1D => RAM32X1D (RAMD32(x2)): 32 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 2 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 68 instances
+
+43 Infos, 13 Warnings, 0 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1554.230 ; gain = 1118.734
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7s50'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7s50'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1554.230 ; gain = 0.000
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: 11c9857fb
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1554.230 ; gain = 0.000
+
+Starting Logic Optimization Task
+
+Phase 1 Retarget
+INFO: [Opt 31-1287] Pulled Inverter mb_block_i/mdm_1/U0/MDM_Core_I1/JTAG_CONTROL_I/Use_BSCAN.FDC_I/Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_1 into driver instance mb_block_i/mdm_1/U0/MDM_Core_I1/JTAG_CONTROL_I/Use_BSCAN.FDC_I/Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_2, which resulted in an inversion of 14 pins
+INFO: [Opt 31-1287] Pulled Inverter mb_block_i/spi_usb/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/FSM_onehot_gen_rst_ic.curr_wrst_state[4]_i_1 into driver instance mb_block_i/spi_usb/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst//i_, which resulted in an inversion of 2 pins
+INFO: [Opt 31-1287] Pulled Inverter mb_block_i/spi_usb/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/FSM_onehot_gen_rst_ic.curr_wrst_state[4]_i_1 into driver instance mb_block_i/spi_usb/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst//i_, which resulted in an inversion of 2 pins
+INFO: [Opt 31-1287] Pulled Inverter mb_block_i/spi_usb/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/LOGIC_FOR_MD_0_GEN.SPI_MODULE_I/LOCAL_TX_EMPTY_FIFO_12_GEN.stop_clock_reg_i_1 into driver instance mb_block_i/spi_usb/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/LOGIC_FOR_MD_0_GEN.SPI_MODULE_I/SS_O[0]_i_2, which resulted in an inversion of 3 pins
+INFO: [Opt 31-138] Pushed 6 inverter(s) to 36 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: 14939e896
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1858.426 ; gain = 0.000
+INFO: [Opt 31-389] Phase Retarget created 220 cells and removed 344 cells
+INFO: [Opt 31-1021] In phase Retarget, 4 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 2 Constant propagation
+INFO: [Opt 31-138] Pushed 8 inverter(s) to 14 load pin(s).
+Phase 2 Constant propagation | Checksum: dbff0ac5
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1858.426 ; gain = 0.000
+INFO: [Opt 31-389] Phase Constant propagation created 123 cells and removed 295 cells
+INFO: [Opt 31-1021] In phase Constant propagation, 2 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 3 Sweep
+Phase 3 Sweep | Checksum: 16315b80c
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1858.426 ; gain = 0.000
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 274 cells
+INFO: [Opt 31-1021] In phase Sweep, 7 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 4 BUFG optimization
+INFO: [Opt 31-194] Inserted BUFG mb_block_i/mdm_1/U0/Use_E2.BSCAN_I/Dbg_Update_0_BUFG_inst to drive 40 load(s) on clock net mb_block_i/mdm_1/U0/Use_E2.BSCAN_I/Dbg_Update_0_BUFG
+INFO: [Opt 31-193] Inserted 1 BUFG(s) on clock nets
+Phase 4 BUFG optimization | Checksum: 1896ef7bf
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1858.426 ; gain = 0.000
+INFO: [Opt 31-662] Phase BUFG optimization created 1 cells of which 1 are BUFGs and removed 0 cells.
+
+Phase 5 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 5 Shift Register Optimization | Checksum: 1896ef7bf
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1858.426 ; gain = 0.000
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 6 Post Processing Netlist
+Phase 6 Post Processing Netlist | Checksum: 15cdb8b19
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1858.426 ; gain = 0.000
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+INFO: [Opt 31-1021] In phase Post Processing Netlist, 2 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |             220  |             344  |                                              4  |
+|  Constant propagation         |             123  |             295  |                                              2  |
+|  Sweep                        |               0  |             274  |                                              7  |
+|  BUFG optimization            |               1  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                              2  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.034 . Memory (MB): peak = 1858.426 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: 1c92bb260
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 1858.426 ; gain = 0.000
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 55 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
+Number of BRAM Ports augmented: 4 newly gated: 0 Total Ports: 110
+Number of Flops added for Enable Generation: 1
+
+Ending PowerOpt Patch Enables Task | Checksum: 9f5f2f10
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.278 . Memory (MB): peak = 2063.914 ; gain = 0.000
+Ending Power Optimization Task | Checksum: 9f5f2f10
+
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:07 . Memory (MB): peak = 2063.914 ; gain = 205.488
+
+Starting Final Cleanup Task
+
+Starting Logic Optimization Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Logic Optimization Task | Checksum: 87d666de
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2063.914 ; gain = 0.000
+Ending Final Cleanup Task | Checksum: 87d666de
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 2063.914 ; gain = 0.000
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 2063.914 ; gain = 0.000
+Ending Netlist Obfuscation Task | Checksum: 87d666de
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 2063.914 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+76 Infos, 13 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:27 ; elapsed = 00:00:21 . Memory (MB): peak = 2063.914 ; gain = 509.684
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.042 . Memory (MB): peak = 2063.914 ; gain = 0.000

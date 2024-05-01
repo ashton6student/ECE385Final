@@ -52,31 +52,31 @@ module testbench(
         .state_out(state) 
     );
     
-    vga_controller vga (
-        .pixel_clk(clk),
-        .reset(reset),
-        .hs(hsync),
-        .vs(vsync),
-        .active_nblank(vde),
-        .drawX(drawX),
-        .drawY(drawY)
-    ); 
+//    vga_controller vga (
+//        .pixel_clk(clk),
+//        .reset(reset),
+//        .hs(hsync),
+//        .vs(vsync),
+//        .active_nblank(vde),
+//        .drawX(drawX),
+//        .drawY(drawY)
+//    ); 
     
-    color_mapper color_instance(
-        .NotesX(notesX),
-        .NotesY(notesY),
-        .DrawX(drawX),
-        .DrawY(drawY),
-        .NotesSX(notesSX),
-        .NotesSY(notesSY),
-        .NotesSelect(notesSelect),
-        .Red(red),
-        .Green(green),
-        .Blue(blue),
-        .hit_bar(hit_bar),
-        .vga_clk(clk),
-        .state(state)
-    );
+//    color_mapper color_instance(
+//        .NotesX(notesX),
+//        .NotesY(notesY),
+//        .DrawX(drawX),
+//        .DrawY(drawY),
+//        .NotesSX(notesSX),
+//        .NotesSY(notesSY),
+//        .NotesSelect(notesSelect),
+//        .Red(red),
+//        .Green(green),
+//        .Blue(blue),
+//        .hit_bar(hit_bar),
+//        .vga_clk(clk),
+//        .state(state)
+//    );
     
     // Generate the clock
     initial begin

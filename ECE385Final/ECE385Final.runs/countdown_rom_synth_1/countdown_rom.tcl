@@ -91,7 +91,7 @@ set_property ip_output_repo c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.c
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_ip -quiet c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/ip/countdown_rom/countdown_rom.xci
+read_ip -quiet C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sources_1/ip/countdown_rom/countdown_rom.xci
 set_property used_in_implementation false [get_files -all c:/Users/merli/ECE385Final/ECE385Final/ECE385Final.gen/sources_1/ip/countdown_rom/countdown_rom_ooc.xdc]
 
 OPTRACE "Adding files" END { }
