@@ -4,8 +4,8 @@ Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3823] variable 'notesX' might have multiple concurrent drivers [C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sim_1/new/testbench.sv:46]
-WARNING: [VRFC 10-3823] variable 'notesY' might have multiple concurrent drivers [C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sim_1/new/testbench.sv:47]
+WARNING: [VRFC 10-3823] variable 'notesX' might have multiple concurrent drivers [C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sim_1/new/testbench.sv:47]
+WARNING: [VRFC 10-3823] variable 'notesY' might have multiple concurrent drivers [C:/Users/merli/ECE385Final/ECE385Final/ECE385Final.srcs/sim_1/new/testbench.sv:48]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis

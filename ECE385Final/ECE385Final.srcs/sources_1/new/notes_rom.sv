@@ -19,19 +19,13 @@ module notes_rom ( input logic  [6:0]	addr[8],
 	// ROM definition				
 	parameter [0:2**ADDR_WIDTH-1][DATA_WIDTH-1:0] ROM = {
 	    //Note: It takes two seconds given a note velocity of 4 for the first row of notes to reach the hit bar.
-	    //Row 2 - 0
-	    5'b00000,
-	    5'b00000,
-	    5'b00000,
-	    5'b00000,
 	    //Row 2 - 1
 	    5'b00000,
 	    5'b00000,
 	    5'b00000,
 	    5'b00000,
-	
 	    //Row 0 - 0
-	    5'b11111,
+	    5'b00000,
 	    5'b00000,
 	    5'b00000,
 	    5'b00000,
@@ -166,18 +160,23 @@ module notes_rom ( input logic  [6:0]	addr[8],
 	    5'b11111,
 	    5'b11111,
 	    5'b11111,
-	    
-	    //Row 3 - 0
+	    //Row 2 - 0
 	    5'b11111,
+	    5'b00000,
+	    5'b00000,
 	    5'b11111,
+	    //Row 2 - 1
 	    5'b11111,
+	    5'b00000,
+	    5'b00000,
 	    5'b11111,
-	    //Row 3 - 1
+	      //Row 2 - 0
 	    5'b11111,
-	    5'b11111,
-	    5'b11111,
+	    5'b00000,
+	    5'b00000,
 	    5'b11111
-    };
+	    
+	        };
     
     always_comb begin
         for(int i = 0; i < 8; i++) begin

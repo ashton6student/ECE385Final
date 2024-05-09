@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="countdown_rom_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1714531014">
   <File Type="PA-TCL" Name="countdown_rom.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="countdown_rom_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="countdown_rom_reports.tcl"/>
   <File Type="RDS-RDS" Name="countdown_rom.vds"/>
   <File Type="RDS-UTIL" Name="countdown_rom_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="countdown_rom_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="countdown_rom.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="countdown_rom_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="countdown_rom_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/countdown_rom">
     <File Path="$PSRCDIR/sources_1/ip/countdown_rom/countdown_rom.xci">
       <FileInfo>

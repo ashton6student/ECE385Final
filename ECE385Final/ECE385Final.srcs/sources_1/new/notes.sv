@@ -185,7 +185,6 @@ module  notes
     //Hitting Notes
     logic [4:0] score_add, hit_on[8];
     logic [7:0] score;
-    logic score_counted;
     logic [7:0] note_keycodes [5] = {8'h04, 8'h16, 8'h07, 8'h09, 8'h0A};
     logic key_press[5], key_press_old[5];
    
@@ -224,16 +223,17 @@ module  notes
                         if(NotesY[j] >= 10'd400 && NotesY[j] <= 10'd440) begin //If note is actually in the correct range
                             score_add[i] <= 1'b1;
                             hit_on[j][i] <= 1'b0;
-                        end else if (NotesY[j] >= 10'd480) begin
-                            score_add[i] <= 1'b0;
-                            hit_on[j][i] <= 1'b1;
                         end else begin
                             score_add[i] <= 1'b0;
                             hit_on[j][i] <= hit_on[j][i];
                         end
                     end else begin
+                        if (NotesY[j] >= 10'd480) begin
+                            hit_on[j][i] <= 1'b1;
+                        end else begin
+                            hit_on[j][i] <= hit_on[j][i];
+                        end
                         score_add[i] <= 1'b0;
-                        hit_on[j][i] <= hit_on[j][i];
                     end
                 end else begin
                     hit_on[j][i] <= 1'b1;
@@ -241,7 +241,11 @@ module  notes
                 end
             end
         end
-        score <= score + score_add[0] + score_add[1] + score_add[2] + score_add[3] + score_add[4]; 
+        if(Play) begin
+            score <= score + score_add[0] + score_add[1] + score_add[2] + score_add[3] + score_add[4]; 
+        end else begin
+            score <= 0;
+        end
     end
         
 //    always_ff @(posedge frame_clk)

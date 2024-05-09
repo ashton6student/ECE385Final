@@ -24,12 +24,12 @@ module testbench(
 
     );
     logic reset_in, run, clk, clk2, pxl_clk, hsync, vsync, vde;
-    logic signed [10:0] notesX [5], notesY[8]; 
+    logic signed [10:0] notesX[5], notesY[8]; 
     logic [9:0] notesSX, notesSY, drawX, drawY;
     logic [4:0] notesSelect[8], hit_bar;
     logic [3:0] red, green, blue;
     logic [2:0] state;
-    
+    logic [31:0] keycodes;
     //Test
     initial begin
         notesX = '{180, 240, 300, 360, 420};
@@ -43,6 +43,7 @@ module testbench(
         .Reset(reset),
         .Run(run), 
         .frame_clk(clk),
+        .keycodes(keycodes),
         .NotesX(notesX), 
         .NotesY(notesY), 
         .NotesSX(notesSX),
@@ -89,6 +90,13 @@ module testbench(
         forever clk2 = #4ns ~clk2;
     end
     
+    always @(clk) begin
+        if(~clk) begin
+            keycodes = 32'h04040404;
+        end else begin
+            keycodes = 32'h00000000;
+        end
+    end
     initial begin
         reset <= 1'b0;
         repeat (5) @(posedge clk);

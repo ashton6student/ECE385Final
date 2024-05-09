@@ -250,7 +250,7 @@ module color_mapper(   input  logic signed [10:0] NotesX[5], NotesY[8],
         end      
     end 
     
-    //rom instances
+    //rom instances - These modules were created from the Image to COE project https://github.com/amsheth/Image_to_COE
     //background
     vaporwave_rom vaporwave_rom (
 	   .clka   (negedge_vga_clk),
